@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isla Extra — Extras rápidos en Eivissa y Formentera</title>
+<meta name="description" content="Personal extra verificado en Eivissa y Formentera. Publica lo que necesitas y recibe solo a quien está libre y ya ha confirmado.">
+<meta name="theme-color" content="#08282f">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2308282f'/><text x='16' y='23' font-family='system-ui' font-size='18' font-weight='700' fill='%232ad4bd' text-anchor='middle'>IE</text></svg>">
+</head>
+<body>
+
+<!-- ====================================================== HEADER ====== -->
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M3 17c2.2 0 2.2-1.6 4.4-1.6S9.6 17 11.8 17s2.2-1.6 4.4-1.6S18.4 17 20.6 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 3.5l2.2 4.6 5 .7-3.6 3.5.85 5-4.45-2.35L7.55 17.3l.85-5L4.8 8.8l5-.7z" fill="currentColor"/></svg>
+      </span>
+      <span class="logo-text">Isla&nbsp;Extra<span class="logo-dot">.</span></span>
+    </a>
+
+    <div class="head-right">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" class="lang-btn is-on" data-lang="es">ES</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="it">IT</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- =================================================== HERO ========= -->
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="badge"><span class="dot-live"></span><span data-i18n="hero_badge"></span></p>
+        <h1 data-i18n="hero_title"></h1>
+        <p class="lead" data-i18n="hero_sub"></p>
+
+        <div class="stats">
+          <div class="stat">
+            <b class="js-count" data-target="0" id="statAvail">0</b>
+            <span data-i18n="stat_available"></span>
+          </div>
+          <div class="stat">
+            <b class="js-count" data-target="0" id="statComp">0</b>
+            <span data-i18n="stat_companies"></span>
+          </div>
+          <div class="stat">
+            <b class="js-count" data-target="0" id="statMatch">0</b>
+            <span data-i18n="stat_matches"></span>
+          </div>
+          <div class="stat">
+            <b class="js-count" data-target="0" id="statAvg">0</b>
+            <span data-i18n="stat_avg"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- feed en directo -->
+      <aside class="feed-card" aria-live="polite">
+        <div class="feed-head">
+          <span class="feed-title" data-i18n="feed_title"></span>
+          <span class="feed-live"><span class="dot-live"></span><span data-i18n="feed_live"></span></span>
+        </div>
+        <ul class="feed" id="feed"></ul>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- =================================================== PUERTAS ====== -->
+  <section class="doors wrap" id="doors">
+    <button type="button" class="door door-company" data-open="company">
+      <span class="door-kicker" data-i18n="door_company_kicker"></span>
+      <span class="door-title" data-i18n="door_company_title"></span>
+      <span class="door-text" data-i18n="door_company_text"></span>
+      <span class="door-cta"><span data-i18n="door_cta"></span>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
+
+    <button type="button" class="door door-worker" data-open="worker">
+      <span class="door-kicker" data-i18n="door_worker_kicker"></span>
+      <span class="door-title" data-i18n="door_worker_title"></span>
+      <span class="door-text" data-i18n="door_worker_text"></span>
+      <span class="door-cta"><span data-i18n="door_cta"></span>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+    </button>
+  </section>
+
+  <!-- =================================================== DEMO ========= -->
+  <section class="demo wrap" id="demo" hidden>
+    <div class="demo-bar">
+      <button type="button" class="btn-ghost" id="demoClose">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M19 12H6M11 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span data-i18n="demo_close"></span>
+      </button>
+      <span class="demo-note" data-i18n="demo_note"></span>
+      <button type="button" class="btn-ghost" id="demoSwitch"><span></span></button>
+    </div>
+
+    <!-- ---------- panel negocio ---------- -->
+    <div class="panel" id="panelCompany">
+      <div class="panel-head">
+        <span class="panel-chip panel-chip--co" data-i18n="demo_company_title"></span>
+        <span class="panel-who" id="coWho"></span>
+      </div>
+      <div id="coStage"></div>
+    </div>
+
+    <!-- ---------- panel trabajador ---------- -->
+    <div class="panel" id="panelWorker" hidden>
+      <div class="panel-head">
+        <span class="panel-chip panel-chip--wk" data-i18n="demo_worker_title"></span>
+        <span class="panel-who" id="wkWho"></span>
+      </div>
+      <div id="wkStage"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p data-i18n="foot_concept"></p>
+    <p class="muted" data-i18n="foot_note"></p>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
