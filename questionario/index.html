@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Isla Extra — domande operative</title>
+<meta name="description" content="Questionario operativo per impostare la costruzione di Isla Extra.">
+<meta name="theme-color" content="#08282f">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/quiz.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2308282f'/><text x='16' y='23' font-family='system-ui' font-size='18' font-weight='700' fill='%232ad4bd' text-anchor='middle'>IE</text></svg>">
+</head>
+<body class="quiz-body">
+
+<header class="quiz-head">
+  <div class="quiz-wrap quiz-head-inner">
+    <span class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M3 17c2.2 0 2.2-1.6 4.4-1.6S9.6 17 11.8 17s2.2-1.6 4.4-1.6S18.4 17 20.6 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 3.5l2.2 4.6 5 .7-3.6 3.5.85 5-4.45-2.35L7.55 17.3l.85-5L4.8 8.8l5-.7z" fill="currentColor"/></svg>
+      </span>
+      <span class="logo-text">Isla&nbsp;Extra<span class="logo-dot">.</span></span>
+    </span>
+    <span class="quiz-save" id="saveTag" hidden>salvato</span>
+  </div>
+  <div class="quiz-progress" id="progressBar" hidden><i id="progressFill"></i></div>
+</header>
+
+<main class="quiz-wrap" id="main">
+
+  <!-- ============================================ copertina -->
+  <section class="cover" id="cover">
+    <p class="badge-quiz">Domande operative</p>
+    <h1 id="coverTitle"></h1>
+    <p class="cover-sub" id="coverSub"></p>
+
+    <ul class="cover-list" id="coverList"></ul>
+
+    <p class="cover-note" id="coverNote"></p>
+
+    <div class="cover-actions">
+      <button type="button" class="btn btn-teal" id="startBtn">Inizia</button>
+      <button type="button" class="btn btn-soft" id="resumeBtn" hidden>Riprendi da dove eri</button>
+    </div>
+  </section>
+
+  <!-- ============================================ domande -->
+  <section id="stage" hidden></section>
+
+  <!-- ============================================ fine -->
+  <section id="done" hidden></section>
+
+</main>
+
+<footer class="quiz-foot">
+  <div class="quiz-wrap">
+    <p class="muted">Le risposte restano su questo dispositivo finché non le invii.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/quiz-data.js"></script>
+<script src="../assets/js/quiz.js"></script>
+</body>
+</html>
