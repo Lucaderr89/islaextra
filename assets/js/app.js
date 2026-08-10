@@ -131,7 +131,7 @@ function buildFeedEvent(minsAgo){
     comp:  c.name,
     role:  pick(w.roles),
     zone:  tpl.type === 'avail' ? pick(w.zones) : c.zone,
-    stars: rint(4,5)+'/5',
+    score: w.score,
     mins:  minsAgo
   };
 }
@@ -142,7 +142,7 @@ function feedText(it){
     company: '<b>'+esc(it.comp)+'</b>',
     role:    esc(roleName(it.role)).toLowerCase(),
     zone:    '<b>'+esc(zoneName(it.zone))+'</b>',
-    stars:   it.stars
+    score:   it.score
   });
 }
 
