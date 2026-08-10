@@ -6,6 +6,12 @@
 <title>Isla Extra — Extras rápidos en Eivissa y Formentera</title>
 <meta name="description" content="Personal extra verificado uno a uno en Eivissa y Formentera. Dices la hora exacta que necesitas y te proponemos solo a quien está libre y ya ha confirmado.">
 <meta name="theme-color" content="#F5F1E7">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Isla Extra — Extras rápidos en Eivissa y Formentera">
+<meta property="og:description" content="Personal extra verificado uno a uno en Eivissa y Formentera. Dices la hora exacta y te proponemos solo a quien está libre y ya ha dicho que sí.">
+<meta property="og:url" content="https://lucaderr89.github.io/islaextra/">
+<meta property="og:image" content="https://lucaderr89.github.io/islaextra/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&f[]=switzer@400,500,600,700&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -38,6 +44,7 @@
     <div class="wrap hero-grid">
 
       <div class="hero-copy">
+        <img class="hero-flor" src="assets/img/flor.png" alt="" aria-hidden="true">
         <p class="badge"><span class="dot-live"></span><span data-i18n="hero_badge"></span></p>
         <h1 data-i18n="hero_title"></h1>
         <p class="lead" data-i18n="hero_sub"></p>
@@ -50,20 +57,31 @@
         </div>
       </div>
 
-      <aside class="feed-card" aria-live="polite">
-        <div class="feed-head">
-          <span class="feed-title" data-i18n="feed_title"></span>
-          <span class="feed-live"><span class="dot-live"></span><span data-i18n="feed_live"></span></span>
+      <aside class="hero-side">
+        <figure class="hero-photo">
+          <img src="assets/img/foto-bouga.jpg" alt="" width="1400" height="1050">
+        </figure>
+        <div class="feed-card" aria-live="polite">
+          <div class="feed-head">
+            <span class="feed-title" data-i18n="feed_title"></span>
+            <span class="feed-live"><span class="dot-live"></span><span data-i18n="feed_live"></span></span>
+          </div>
+          <ul class="feed" id="feed"></ul>
         </div>
-        <ul class="feed" id="feed"></ul>
       </aside>
 
     </div>
   </section>
 
+  <!-- =================================================== TICKER ======= -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+
   <!-- =================================================== PORTE ======== -->
   <section class="doors" id="doors">
-    <button type="button" class="door door-company" data-open="company">
+    <button type="button" class="door door-company rv" data-open="company">
+      <span class="door-media"><img src="assets/img/foto-tavolo.jpg" alt="" width="1100" height="825" loading="lazy"></span>
       <span class="door-kicker" data-i18n="door_company_kicker"></span>
       <span class="door-title" data-i18n="door_company_title"></span>
       <span class="door-text" data-i18n="door_company_text"></span>
@@ -72,7 +90,8 @@
       </span>
     </button>
 
-    <button type="button" class="door door-worker" data-open="worker">
+    <button type="button" class="door door-worker rv" data-open="worker">
+      <span class="door-media"><img src="assets/img/foto-mani.jpg" alt="" width="1100" height="825" loading="lazy"></span>
       <span class="door-kicker" data-i18n="door_worker_kicker"></span>
       <span class="door-title" data-i18n="door_worker_title"></span>
       <span class="door-text" data-i18n="door_worker_text"></span>
@@ -117,13 +136,14 @@
 <footer class="site-foot">
   <div class="wrap foot-grid">
     <div class="foot-logo">
-      <img src="assets/img/logo.png" alt="" width="42" height="42">
+      <img src="assets/img/logo-calce.png" alt="" width="42" height="42">
       <b>Isla Extra</b>
     </div>
     <div>
       <p data-i18n="foot_concept"></p>
       <p class="muted" data-i18n="foot_note"></p>
     </div>
+    <img class="foot-nodo" src="assets/img/nodo-calce.png" alt="" aria-hidden="true" loading="lazy">
   </div>
 </footer>
 

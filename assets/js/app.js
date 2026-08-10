@@ -355,7 +355,8 @@ function wireWizard(){
 function runSearch(){
   var st=el('#coStage');
   var keys=['search_step1','search_step2','search_step3','search_step4'];
-  st.innerHTML='<div class="stage"><div class="searching"><div class="radar"></div>'
+  st.innerHTML='<div class="stage"><div class="searching">'
+    +'<img class="hourglass" src="assets/img/clessidra.png" alt="" width="56" height="56">'
     +'<h3>'+t('search_title')+'</h3><ul class="steps">'
     + keys.map(function(k){ return '<li><span class="tick">'+svg('check',11)+'</span><span>'+t(k)+'</span></li>'; }).join('')
     +'</ul></div></div>';
@@ -598,8 +599,32 @@ function applyLang(code){
     if(currentSide==='company') renderCompany(); else renderWorker();
   }
 }
+/* nastro delle zone: i nomi veri delle isole, separati dal fiore */
+function initTicker(){
+  var tk=el('#ticker'); if(!tk) return;
+  var half=D.ZONES.map(function(z){
+    return '<span>'+esc(z.name)+'</span>'
+      +'<img src="assets/img/flor.png" alt="" width="15" height="15">';
+  }).join('');
+  tk.innerHTML=half+half;
+}
+
+/* le sezioni compaiono quando entrano nello schermo */
+function initReveal(){
+  var nodes=els('.rv');
+  if(!('IntersectionObserver' in window)){ nodes.forEach(function(n){n.classList.add('in');}); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:.15});
+  nodes.forEach(function(n){ io.observe(n); });
+}
+
 function init(){
   feedEl=el('#feed');
+  initTicker();
+  initReveal();
   applyLang('es');
   seedFeed();
   countUp('statAvail',availableNowCount());
