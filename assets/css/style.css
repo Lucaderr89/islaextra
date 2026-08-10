@@ -416,10 +416,10 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;
 .hero-copy>.stats{animation-delay:.34s}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-/* il fiore spunta da dietro la foto, in alto a destra */
-.hero-flor{position:absolute;top:-92px;right:-64px;width:230px;
-  transform:rotate(8deg);pointer-events:none;user-select:none;z-index:0}
-@media(max-width:979px){.hero-flor{width:140px;top:-52px;right:-14px}}
+/* fiore in filigrana dietro il titolo: presente ma sotto il testo */
+.hero-copy{position:relative}
+.hero-flor{position:absolute;top:-48px;left:-116px;width:300px;opacity:.05;
+  transform:rotate(-14deg);pointer-events:none;user-select:none}
 
 /* colonna destra: la foto e il feed che la copre */
 .hero-side{display:flex;flex-direction:column;position:relative;
