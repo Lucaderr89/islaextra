@@ -418,7 +418,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;
 
 /* fiore in filigrana dietro il titolo: presente ma sotto il testo */
 .hero-copy{position:relative}
-.hero-flor{position:absolute;top:-48px;left:-116px;width:300px;opacity:.03;
+.hero-flor{position:absolute;top:-48px;left:-116px;width:300px;
   transform:rotate(-14deg);pointer-events:none;user-select:none}
 
 /* colonna destra: la foto e il feed che la copre */
