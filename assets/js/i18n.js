@@ -7,7 +7,7 @@ const IE_I18N = {
   es: {
     hero_badge:'Ahora mismo en Eivissa y Formentera',
     hero_title:'Personal extra verificado,<br><em>en Eivissa y Formentera.</em>',
-    hero_sub:'Dinos la hora exacta que necesitas, aunque sea de 22:30 a 02:30. Te proponemos solo personas comprobadas una a una y libres justo a esa hora: nada de mensajes al grupo esperando respuesta.',
+    hero_sub:'Los negocios publican los turnos, con la hora exacta. Quien trabaja actualiza su calendario. Isla Extra cruza las dos cosas y propone el match solo si encajan de verdad: perfiles fiables por un lado, negocios certificados por el otro.',
     stat_available:'libres ahora mismo',
     stat_companies:'negocios activos',
     stat_matches:'turnos cubiertos esta semana',
@@ -188,7 +188,7 @@ const IE_I18N = {
   en: {
     hero_badge:'Right now in Ibiza and Formentera',
     hero_title:'Verified extra staff,<br><em>in Ibiza and Formentera.</em>',
-    hero_sub:'Tell us the exact hours you need, even 22:30 to 02:30. We only propose people vetted one by one and free at that exact time — no more group messages hoping someone replies.',
+    hero_sub:'Businesses post their shifts, with the exact hours. Workers keep their calendar up to date. Isla Extra crosses the two and proposes a match only when they truly fit: reliable profiles on one side, certified businesses on the other.',
     stat_available:'free right now',
     stat_companies:'active businesses',
     stat_matches:'shifts covered this week',
@@ -369,7 +369,7 @@ const IE_I18N = {
   it: {
     hero_badge:'In questo momento a Ibiza e Formentera',
     hero_title:'Personale extra verificato,<br><em>a Ibiza e Formentera.</em>',
-    hero_sub:'Dicci l’orario esatto che ti serve, anche dalle 22:30 alle 02:30. Ti proponiamo solo persone controllate una per una e libere proprio a quell’ora: niente messaggi nel gruppo sperando che qualcuno risponda.',
+    hero_sub:'I locali pubblicano i turni, con l’orario esatto. Chi lavora aggiorna il suo calendario. Isla Extra incrocia le due cose e propone il match solo se combaciano davvero: profili affidabili da una parte, attività certificate dall’altra.',
     stat_available:'liberi adesso',
     stat_companies:'attività attive',
     stat_matches:'turni coperti questa settimana',
