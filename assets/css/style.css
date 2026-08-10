@@ -416,15 +416,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;
 .hero-copy>.stats{animation-delay:.34s}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
-/* fiore in filigrana dietro il titolo */
-.hero-copy{position:relative}
-.hero-flor{position:absolute;top:-60px;left:-150px;width:280px;opacity:.03;
-  transform:rotate(-14deg);pointer-events:none;user-select:none}
+/* il fiore spunta da dietro la foto, in alto a destra */
+.hero-flor{position:absolute;top:-92px;right:-64px;width:230px;
+  transform:rotate(8deg);pointer-events:none;user-select:none;z-index:0}
+@media(max-width:979px){.hero-flor{width:140px;top:-52px;right:-14px}}
 
 /* colonna destra: la foto e il feed che la copre */
-.hero-side{display:flex;flex-direction:column;animation:rise .8s cubic-bezier(.2,.8,.3,1) .2s both}
-.hero-photo{border:var(--line);overflow:hidden;aspect-ratio:16/10;
-  box-shadow:10px 10px 0 var(--buga)}
+.hero-side{display:flex;flex-direction:column;position:relative;
+  animation:rise .8s cubic-bezier(.2,.8,.3,1) .2s both}
+.hero-photo{border:var(--line);overflow:hidden;aspect-ratio:16/10;position:relative;
+  z-index:1;box-shadow:10px 10px 0 var(--buga)}
 .hero-photo img{width:100%;height:100%;object-fit:cover;
   animation:respiro 26s ease-in-out infinite alternate}
 @keyframes respiro{from{transform:scale(1)}to{transform:scale(1.07)}}
