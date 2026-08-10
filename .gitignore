@@ -10,3 +10,6 @@ Thumbs.db
 Desktop.ini
 .DS_Store
 node_modules/
+
+# Applicazione Laravel: vive qui ma NON va nel repository pubblico
+app/
