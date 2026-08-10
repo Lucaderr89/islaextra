@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isla Extra — proposte di marchio</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&f[]=switzer@400,500,600,700&display=swap">
+<style>
+:root{
+  --calc:#F5F1E7; --calc-2:#EAE4D6; --tinta:#141519;
+  --terra:#B35F3D; --buga:#CB258B; --pedra:#BEB4B2;
+  --serif:'Zodiak',Georgia,serif; --sans:'Switzer',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--calc);color:var(--tinta);font-family:var(--sans);font-size:17px;line-height:1.55}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3,h4,p{margin:0}
+img{display:block;max-width:100%}
+
+.top{border-bottom:1px solid var(--tinta);padding:.9rem 0}
+.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.top b{font-family:var(--serif);font-weight:700;font-size:1.05rem}
+.top a{color:var(--terra);font-size:.8rem;text-decoration:none;border-bottom:1px solid var(--terra)}
+
+header{padding:clamp(2.5rem,7vw,5rem) 0 clamp(1.5rem,4vw,3rem)}
+.kicker{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
+  border-bottom:1px solid var(--terra);display:inline-block;padding-bottom:.3rem;margin-bottom:1.4rem}
+header h1{font-family:var(--serif);font-weight:800;font-size:clamp(2.6rem,8vw,5rem);
+  line-height:.95;letter-spacing:-.04em;margin-bottom:1rem}
+header p{max-width:60ch;color:#3c3a35}
+
+section{padding:clamp(2rem,5vw,3.5rem) 0;border-top:1px solid var(--tinta)}
+.sec-n{font-family:var(--serif);font-size:.9rem;color:var(--terra)}
+.sec-t{font-family:var(--serif);font-weight:700;font-size:clamp(1.6rem,4.5vw,2.6rem);
+  letter-spacing:-.035em;line-height:1.05;margin:.3rem 0 .7rem}
+.sec-d{max-width:58ch;color:#3c3a35}
+
+/* schede proposta */
+.cards{display:grid;gap:1.5rem;margin-top:2rem}
+@media(min-width:820px){.cards{grid-template-columns:1fr 1fr}}
+.card{border:1px solid var(--tinta);background:var(--calc);display:flex;flex-direction:column}
+.card.win{border-width:2px;box-shadow:6px 6px 0 var(--buga)}
+.card.out{opacity:.72}
+.card-img{border-bottom:1px solid var(--tinta);background:#fff}
+.card-img img{width:100%;height:auto}
+.card-b{padding:1.1rem 1.2rem;flex:1;display:flex;flex-direction:column}
+.card-h{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;margin-bottom:.5rem}
+.card-h h3{font-family:var(--serif);font-size:1.3rem;letter-spacing:-.025em}
+.tag{font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.24rem .55rem}
+.tag-win{background:var(--buga);color:#fff}
+.tag-mid{background:var(--calc-2);color:#6b6559;border:1px solid var(--pedra)}
+.tag-out{background:transparent;color:#8a8478;border:1px solid var(--pedra)}
+.card ul{margin:.6rem 0 0;padding:0;list-style:none;font-size:.9rem}
+.card li{display:flex;gap:.55rem;padding:.3rem 0}
+.card li::before{flex:none;font-weight:700}
+.pro::before{content:"+";color:#1a7a52}
+.con::before{content:"−";color:#b2402c}
+
+/* prove di scala */
+.scale-row{display:grid;gap:1px;background:var(--tinta);border:1px solid var(--tinta);margin-top:1.6rem}
+@media(min-width:700px){.scale-row{grid-template-columns:repeat(5,1fr)}}
+.sc{background:var(--calc);padding:1rem .6rem;text-align:center}
+.sc-box{height:132px;display:grid;place-items:center}
+.sc img{image-rendering:auto}
+.sc b{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:#7a746a;margin-top:.5rem}
+.sc small{display:block;font-size:.72rem;color:#a09a90}
+
+/* adesivo */
+.sticker-scene{margin-top:1.8rem;border:1px solid var(--tinta);position:relative;overflow:hidden}
+.sticker-scene img.bg{width:100%;height:auto;display:block}
+.sticker{position:absolute;right:6%;top:16%;width:min(30%,220px);aspect-ratio:1;
+  background:var(--calc);border-radius:50%;display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);padding:6%}
+.sticker img{width:100%;border-radius:50%}
+.cap{font-size:.85rem;color:#6b6559;margin-top:.7rem}
+
+/* verdetto */
+.verdict{border:2px solid var(--tinta);padding:clamp(1.2rem,3vw,2rem);margin-top:2rem;background:var(--calc-2)}
+.verdict h3{font-family:var(--serif);font-size:1.5rem;letter-spacing:-.03em;margin-bottom:.6rem}
+.verdict p{max-width:62ch}
+.verdict ol{margin:1rem 0 0;padding-left:1.2rem}
+.verdict li{margin-bottom:.5rem}
+footer{border-top:1px solid var(--tinta);padding:2rem 0 3rem;font-size:.85rem;color:#5a564e}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <b>Isla Extra</b><a href="index.html">← direzione CALÇ</a>
+</div></div>
+
+<header><div class="wrap">
+  <p class="kicker">Marchio · sei proposte</p>
+  <h1>Il sigillo</h1>
+  <p>Sei concetti generati nella palette CALÇ. Sotto ognuno la mia valutazione, e più in basso la prova che conta davvero: come si comportano rimpiccioliti fino a 16 pixel, che è la dimensione del badge sul profilo e della favicon.</p>
+</div></header>
+
+<section><div class="wrap">
+  <p class="sec-n">01</p>
+  <h2 class="sec-t">Le proposte</h2>
+
+  <div class="cards">
+
+    <div class="card win">
+      <div class="card-img"><img src="logo/A-clessidra.jpg" alt="Clessidra dentro doppio anello"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>A · Clessidra</h3><span class="tag tag-win">La mia scelta</span></div>
+        <ul>
+          <li class="pro">Si legge come clessidra <em>e</em> come X: tempo e incontro in un segno solo</li>
+          <li class="pro">Resta leggibile anche piccolissima, i due triangoli non si chiudono</li>
+          <li class="pro">Il doppio anello aperto in alto dà il carattere del timbro senza fare finto-antico</li>
+          <li class="con">Gli anelli non sono concentrici e il taglio è storto: da rifare in vettoriale</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card win">
+      <div class="card-img"><img src="logo/F-ottagono.jpg" alt="Clessidra lineare in cornice ottagonale"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>F · Sigillo ottagonale</h3><span class="tag tag-win">Alternativa forte</span></div>
+        <ul>
+          <li class="pro">L'ottagono dice "documento ufficiale" più del cerchio: perfetto sull'adesivo</li>
+          <li class="pro">La clessidra a filo è elegante e più raffinata della versione piena</li>
+          <li class="pro">Ha l'aria di un marchio di garanzia storico, non di una app</li>
+          <li class="con">Troppi dettagli sotto i 32px: la doppia cornice si impasta</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-img"><img src="logo/D-archi.jpg" alt="Archi contrapposti nel cerchio"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>D · Archi</h3><span class="tag tag-mid">Da valutare</span></div>
+        <ul>
+          <li class="pro">Bella forma, magenta pieno, molto contemporanea</li>
+          <li class="con">Non si capisce cosa rappresenti: c'è chi ci vede un fungo</li>
+          <li class="con">Non racconta né il tempo né l'incontro</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card out">
+      <div class="card-img"><img src="logo/C-x-timbro.jpg" alt="X dentro un cerchio"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>C · X cerchiata</h3><span class="tag tag-out">Scartata</span></div>
+        <ul>
+          <li class="con"><b>Significa "errore", "chiudi", "annulla".</b> È il simbolo di rifiuto più universale che esista</li>
+          <li class="con">Su un servizio che serve a dire "trovato" è esattamente il messaggio opposto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card out">
+      <div class="card-img"><img src="logo/B-sole-tagliato.jpg" alt="Cerchio con spicchio rimosso"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>B · Sole tagliato</h3><span class="tag tag-out">Scartata</span></div>
+        <ul>
+          <li class="con">Legge come grafico a torta, o come Pac-Man</li>
+          <li class="con">L'idea dell'ombra netta non arriva: sembra un dato statistico</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card out">
+      <div class="card-img"><img src="logo/E-sole-raggi.jpg" alt="Sole a raggi con spicchio vuoto"></div>
+      <div class="card-b">
+        <div class="card-h"><h3>E · Sole a raggi</h3><span class="tag tag-out">Scartata</span></div>
+        <ul>
+          <li class="con">Troppi elementi sottili: a 24px diventa una macchia</li>
+          <li class="con">Somiglia a un ingranaggio o al quadrante di un orologio</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">02</p>
+  <h2 class="sec-t">La prova che conta: le dimensioni piccole</h2>
+  <p class="sec-d">Un marchio si giudica dove viene consumato, non nella presentazione. Qui trovi le due proposte migliori rimpicciolite fino a 16 pixel — la misura del badge accanto al nome di un lavoratore e della favicon nella scheda del browser.</p>
+
+  <h3 style="font-family:var(--serif);font-size:1.2rem;margin-top:2rem">A · Clessidra</h3>
+  <div class="scale-row">
+    <div class="sc"><div class="sc-box"><img src="logo/A-clessidra.jpg" width="128" alt=""></div><b>128 px</b><small>testata</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/A-clessidra.jpg" width="64" alt=""></div><b>64 px</b><small>icona telefono</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/A-clessidra.jpg" width="32" alt=""></div><b>32 px</b><small>avatar</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/A-clessidra.jpg" width="24" alt=""></div><b>24 px</b><small>badge profilo</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/A-clessidra.jpg" width="16" alt=""></div><b>16 px</b><small>favicon</small></div>
+  </div>
+
+  <h3 style="font-family:var(--serif);font-size:1.2rem;margin-top:2rem">F · Sigillo ottagonale</h3>
+  <div class="scale-row">
+    <div class="sc"><div class="sc-box"><img src="logo/F-ottagono.jpg" width="128" alt=""></div><b>128 px</b><small>testata</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/F-ottagono.jpg" width="64" alt=""></div><b>64 px</b><small>icona telefono</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/F-ottagono.jpg" width="32" alt=""></div><b>32 px</b><small>avatar</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/F-ottagono.jpg" width="24" alt=""></div><b>24 px</b><small>badge profilo</small></div>
+    <div class="sc"><div class="sc-box"><img src="logo/F-ottagono.jpg" width="16" alt=""></div><b>16 px</b><small>favicon</small></div>
+  </div>
+  <p class="cap">Guarda le ultime due colonne: la clessidra piena regge, la cornice ottagonale si impasta. È il motivo per cui servono due versioni dello stesso marchio, non una sola.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">03</p>
+  <h2 class="sec-t">Sulla vetrina</h2>
+  <p class="sec-d">L'adesivo sulla porta del locale è il pezzo di marketing più economico che avete: stampato costa pochi centesimi e resta lì tutta la stagione. Qui il sigillo appoggiato su un muro di calce vero.</p>
+  <div class="sticker-scene">
+    <img class="bg" src="img/01-calce-ombra.jpg" alt="Muro di calce">
+    <div class="sticker"><img src="logo/A-clessidra.jpg" alt="Sigillo applicato"></div>
+  </div>
+  <p class="cap">Il magenta contro la calce funziona esattamente come la bougainvillea: è il contrasto naturale dell'isola.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">04</p>
+  <h2 class="sec-t">Cosa proporrei</h2>
+  <div class="verdict">
+    <h3>Un marchio, due versioni</h3>
+    <p>Non scegliere fra A e F, ma usarle come i due livelli dello stesso sistema: stessa clessidra al centro, cornice diversa a seconda di quanto spazio c'è.</p>
+    <ol>
+      <li><b>Sigillo completo</b> — cornice ottagonale con la clessidra, per adesivo, testata, documenti e stampa.</li>
+      <li><b>Segno ridotto</b> — la sola clessidra piena, per favicon, badge sul profilo, icona sul telefono e avatar WhatsApp.</li>
+      <li><b>Versione monocromatica</b> in nero pieno, obbligatoria per serigrafia, timbri e fax dei gestori.</li>
+    </ol>
+    <p style="margin-top:1rem">Poi lo ridisegno in SVG: geometria esatta, anelli davvero concentrici, spessori calibrati per restare aperti a 16px. Queste sono proposte, non file definitivi.</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Proposte generate per valutazione interna. Nessun file è ancora definitivo.</p>
+</div></footer>
+
+</body>
+</html>
