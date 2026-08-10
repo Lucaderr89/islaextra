@@ -62,9 +62,35 @@ var ICON = {
   link:'<path d="M9 15l6-6M11 6l1.5-1.5a4.2 4.2 0 016 6L17 12M13 18l-1.5 1.5a4.2 4.2 0 01-6-6L7 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
   info:'<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v5M12 7.6v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
   bag:'<path d="M4 8h16v12H4zM9 8V6a3 3 0 016 0v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  bed:'<path d="M3 18v-7h18v7M3 18v2M21 18v2M3 11V7M7 11V9a2 2 0 012-2h3a2 2 0 012 2v2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  key:'<circle cx="8" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 12h9M18 12v4M21 12v3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  drop:'<path d="M12 3s6 7 6 11a6 6 0 01-12 0c0-4 6-11 6-11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  wave:'<path d="M3 10c2.5 0 2.5 3 5 3s2.5-3 5-3 2.5 3 5 3 2.5-3 5-3M3 16c2.5 0 2.5 3 5 3s2.5-3 5-3 2.5 3 5 3 2.5-3 5-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  anchor:'<circle cx="12" cy="5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 8v13M5 13a7 7 0 0014 0M8 11H5M19 11h-3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  rope:'<path d="M6 3c4 3-4 6 0 9s-4 6 0 9M18 3c-4 3 4 6 0 9s4 6 0 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  mic:'<rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 11a7 7 0 0014 0M12 18v3M9 21h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  star:'<path d="M12 3l2.6 5.6 6 .8-4.3 4.2 1 6L12 16.8 6.7 19.6l1-6L3.4 9.4l6-.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  shieldline:'<path d="M12 3l8 3.5V12c0 5-3.4 8.4-8 9.5C7.4 20.4 4 17 4 12V6.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  sound:'<path d="M4 9v6h4l5 4V5L8 9H4zM17 8a6 6 0 010 8M20 5a10 10 0 010 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  run:'<circle cx="15" cy="4.5" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 21l3-5 3-3-1-5-4 3-2 4M14 13l3 3 1 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  box:'<path d="M3 8l9-4 9 4v9l-9 4-9-4zM3 8l9 4 9-4M12 12v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  van:'<path d="M2 16V7h11v9M13 10h4l4 4v2h-3M2 16h3M10 16h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="17.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="17.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.8"/>',
+  bike:'<circle cx="6" cy="17" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="17" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M6 17l4-8h5l3 8M9 9h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  shelf:'<path d="M4 4v16M20 4v16M4 9h16M4 15h16M4 4h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
   up:'<path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
 };
 function svg(n,s){ return '<svg viewBox="0 0 24 24" width="'+(s||16)+'" height="'+(s||16)+'" aria-hidden="true">'+(ICON[n]||'')+'</svg>'; }
+
+/* tariffe orarie reali indicate da Fabio; il compenso si mostra
+   come totale del turno, che e' come ragionano i locali */
+var RATE={ camarero:15, barman:15, cocinero:17, ayudante:13, friegaplatos:12.5,
+  recepcion:14, limpieza:13, housekeeping:13, conserje:15,
+  electricista:22, fontanero:22, jardinero:22, mantenimiento:18, piscinero:20,
+  patron:28, marinero:16, azafata_barco:15, limpieza_barco:14,
+  pr:16, azafata:15, seguridad:17, tecnico:20, runner:13, montaje:14,
+  chofer:18, rider:13, mozo:13, almacen:14 };
+function rateFor(role){ return RATE[role]||14; }
+function payTotal(role,a,b){ return Math.round(rateFor(role)*durH(a,b)); }
 
 /* --------------------------------------------------------------- date --- */
 function localeTag(){ return lang==='es'?'es-ES':(lang==='it'?'it-IT':'en-GB'); }
@@ -171,7 +197,9 @@ function availableNowCount(){
 /* ======================================================================== */
 var Q, step, activeCompany;
 
-var QUICK=[[1200,1500],[1170,1440],[1350,1590],[720,1020],[480,900],[1140,1380]];
+/* durate reali secondo Fabio: 5-8 ore, e in alta stagione quasi sempre
+   a cavallo della mezzanotte */
+var QUICK=[[1200,1560],[1170,1500],[1350,1710],[1080,1440],[600,1080],[480,960]];
 
 function resetQuery(){
   Q={ role:null, dayOffset:null, dow:null, start:null, end:null, zone:null,
@@ -222,7 +250,7 @@ function stepWhen(){
   }
   out+='</div>';
 
-  var s=Q.start===null?1200:Q.start, e=Q.end===null?1500:Q.end;
+  var s=Q.start===null?1200:Q.start, e=Q.end===null?1560:Q.end;
   var cross=span(s,e)>1440;
   out+='<div class="sec-label">'+t('wiz_from')+' / '+t('wiz_to')+'</div>'
     +'<div class="time-row">'
@@ -295,7 +323,7 @@ function wireWizard(){
   els('[data-role]',st).forEach(function(b){ b.onclick=function(){ Q.role=b.dataset.role; renderCompany(); }; });
   els('[data-day]',st).forEach(function(b){ b.onclick=function(){
     Q.dayOffset=+b.dataset.day; Q.dow=addDays(Q.dayOffset).getDay();
-    if(Q.start===null){ Q.start=1200; Q.end=1500; }
+    if(Q.start===null){ Q.start=1200; Q.end=1560; }
     renderCompany(); }; });
   els('[data-zone]',st).forEach(function(b){ b.onclick=function(){ Q.zone=b.dataset.zone; renderCompany(); }; });
   els('[data-lang]',st).forEach(function(b){ b.onclick=function(){ Q.langMin=b.dataset.lang||null; renderCompany(); }; });
@@ -343,7 +371,11 @@ function searchWithFallback(){
   var c=relaxed(['start','end','dow','zone']); if(c.length) return {list:c,widened:'wide_zone'};
   return {list:[],widened:'none'};
 }
-function trustBadge(w){ return '<span class="trust trust--'+w.trust+'">'+svg('shield',11)+t('w_trust_'+w.trust)+'</span>'; }
+function isNew(w){ return w.jobs===0; }
+function trustBadge(w){
+  if(isNew(w)) return '<span class="trust trust--verified">'+t('w_new')+'</span>';
+  return '<span class="trust trust--'+w.trust+'">'+svg('shield',11)+t('w_trust_'+w.trust)+'</span>';
+}
 function skillTag(s){
   var cls=s.status==='confirmed'?' skill--confirmed':(s.status==='doubt'?' skill--doubt':'');
   return '<span class="skill'+cls+'" title="'+esc(t('w_'+s.status))+'">'
@@ -377,13 +409,13 @@ function showResults(){
     el('#again').onclick=function(){ resetQuery(); renderCompany(); };
     return;
   }
-  var shown=res.list.slice(0,4);
+  var shown=res.list;   /* Fabio: mostrarli tutti */
   var banner=res.widened
     ? '<div class="note" style="margin:0 0 1.2rem">'+svg('info',15)
       +'<span><b>'+t('wide_tag')+'.</b> '+t(res.widened)+'</span></div>' : '';
   st.innerHTML='<div class="stage">'+banner
     +'<div class="res-head"><h3>'+t('results_title')+'</h3><p>'+t('results_sub')+'</p></div>'
-    +'<div class="cards">'+shown.map(function(w,i){ return workerCard(w,i<3?'engine':'applied'); }).join('')+'</div></div>';
+    +'<div class="cards">'+shown.map(function(w,i){ return workerCard(w,i%4===3?'applied':'engine'); }).join('')+'</div></div>';
   els('[data-choose]',st).forEach(function(b){ b.onclick=function(){ showMatch(b.dataset.choose); }; });
 }
 function showMatch(wid){
@@ -427,9 +459,10 @@ function profileBlock(){
     +'<div style="margin-bottom:.9rem">'+trustBadge(ME)
     +'<div class="block-hint" style="margin:.4rem 0 0">'+t('w_trust_'+ME.trust+'_d')+'</div></div>'
     +'<div class="prof-stats">'
-    +'<div class="pstat"><b>'+ME.score+'</b><span>'+t('w_score')+'</span></div>'
     +'<div class="pstat"><b>'+ME.jobs+'</b><span>'+t('w_jobs')+'</span></div>'
-    +'<div class="pstat"><b>'+ME.attendance+'%</b><span>'+t('w_attendance')+'</span></div></div>'
+    +'<div class="pstat"><b>'+ME.attendance+'%</b><span>'+t('w_attendance')+'</span></div>'
+    +'<div class="pstat"><b>&middot;</b><span>'+t('w_score_hidden')+'</span></div></div>'
+    +'<div class="block-hint" style="margin:-.4rem 0 .9rem">'+t('w_score_hidden_d')+'</div>'
     +'<div class="sec-label" style="margin-top:0">'+t('w_langs')+'</div>'
     +'<div style="font-size:.88rem;color:var(--tinta-2)">'+esc(langs)+'</div>'
     +'<div class="sec-label">'+t('w_skills')+'</div>'
@@ -467,8 +500,9 @@ function myOffers(){
     var c=co[(i+out.length)%co.length];
     var start=a[0]+ (i%2?30:0);
     var end=Math.min(a[1], start+ (i%3===0?240:300));
-    out.push({ co:c, date:date, dow:dow, start:start, end:end,
-               role:ME.roles[i%ME.roles.length], pay:[13,14,15,16][i%4] });
+    var role=ME.roles[i%ME.roles.length];
+    out.push({ co:c, date:date, dow:dow, start:start, end:end, role:role,
+               rate:rateFor(role), total:payTotal(role,start,end) });
   }
   return out;
 }
@@ -480,8 +514,10 @@ function offersBlock(){
       +'<span>'+esc(dowShort(o.dow))+'</span></span>'
       +'<span class="offer-body"><span class="offer-role">'+esc(roleName(o.role))+'</span>'
       +'<span class="offer-meta">'+esc(o.co.name)+' · '+esc(zoneName(o.co.zone))+' · '
-      + toHM(o.start)+'–'+toHM(o.end)+'</span></span>'
-      +'<span class="offer-pay"><b>'+o.pay+' €</b><span>/'+t('wk_hours')+'</span></span>'
+      + toHM(o.start)+'–'+toHM(o.end)
+      + ' · <b>'+o.co.rating.toFixed(1)+'</b> '+t('wk_company_score')+'</span></span>'
+      +'<span class="offer-pay"><b>'+o.total+' €</b><span>'+durH(o.start,o.end).toFixed(1).replace('.0','')
+      + t('wk_hours')+' · '+o.rate+' €/'+t('wk_hours')+'</span></span>'
       +'</div>';
   }).join('');
   return '<div class="block"><div class="block-h"><h3>'+t('wk_offers')+'</h3></div>'
@@ -501,10 +537,10 @@ function proposalBlock(){
     +'<div class="prop-co">'+esc(co.name)+' · '+esc(zoneName(co.zone))+'</div>'
     +'<div class="prop-rows">'
     +'<div class="prop-row"><i>'+t('wk_when')+'</i><b style="text-transform:capitalize">'+esc(dayLong(when))+'</b>'
-    +'<small>'+toHM(2000)+'–'+toHM(2)+'</small></div>'
+    +'<small>'+toHM(1200)+'–'+toHM(1560)+'</small></div>'
     +'<div class="prop-row"><i>'+t('wk_where')+'</i><b>'+esc(zoneName(co.zone))+'</b></div>'
-    +'<div class="prop-row"><i>'+t('wk_pay')+'</i><b>4 '+t('wk_hours')+' · 14 €/'+t('wk_hours')+'</b>'
-    +'<small>'+t('wk_pay_note')+'</small></div></div>'
+    +'<div class="prop-row"><i>'+t('wk_pay')+'</i><b>'+payTotal('camarero',1200,1560)+' €</b>'
+    +'<small>6'+t('wk_hours')+' · '+rateFor('camarero')+' €/'+t('wk_hours')+' · '+t('wk_pay_note')+'</small></div></div>'
     +'<div class="prop-act">'
     +'<button type="button" class="btn btn-terra" id="propYes">'+t('wk_accept')+'</button>'
     +'<button type="button" class="btn btn-soft" id="propNo">'+t('wk_decline')+'</button></div>'

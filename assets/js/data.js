@@ -47,20 +47,48 @@ const IE_DATA = (function () {
   /* --- Sectores y puestos ------------------------------------------------ */
   const SECTORS = [
     { id:'hosteleria', key:'sector_hosteleria' },
-    { id:'servicios',  key:'sector_servicios'  }
+    { id:'alojamiento',key:'sector_alojamiento'},
+    { id:'mantenimiento',key:'sector_mantenimiento'},
+    { id:'nautica',    key:'sector_nautica'   },
+    { id:'eventos',    key:'sector_eventos'   },
+    { id:'logistica',  key:'sector_logistica' }
   ];
 
   const ROLES = [
+    /* hosteleria */
     { id:'camarero',     sector:'hosteleria', key:'role_camarero',     icon:'tray'  },
     { id:'barman',       sector:'hosteleria', key:'role_barman',       icon:'glass' },
     { id:'cocinero',     sector:'hosteleria', key:'role_cocinero',     icon:'pan'   },
     { id:'ayudante',     sector:'hosteleria', key:'role_ayudante',     icon:'knife' },
     { id:'friegaplatos', sector:'hosteleria', key:'role_friegaplatos', icon:'plate' },
-    { id:'recepcion',    sector:'hosteleria', key:'role_recepcion',    icon:'bell'  },
-    { id:'limpieza',     sector:'servicios',  key:'role_limpieza',     icon:'spray' },
-    { id:'electricista', sector:'servicios',  key:'role_electricista', icon:'bolt'  },
-    { id:'jardinero',    sector:'servicios',  key:'role_jardinero',    icon:'leaf'  },
-    { id:'mantenimiento',sector:'servicios',  key:'role_mantenimiento',icon:'wrench'}
+    /* hoteles y villas */
+    { id:'recepcion',    sector:'alojamiento',key:'role_recepcion',    icon:'bell'  },
+    { id:'limpieza',     sector:'alojamiento',key:'role_limpieza',     icon:'spray' },
+    { id:'housekeeping', sector:'alojamiento',key:'role_housekeeping', icon:'bed'   },
+    { id:'conserje',     sector:'alojamiento',key:'role_conserje',     icon:'key'   },
+    /* mantenimiento */
+    { id:'electricista', sector:'mantenimiento',key:'role_electricista',icon:'bolt' },
+    { id:'fontanero',    sector:'mantenimiento',key:'role_fontanero',  icon:'drop'  },
+    { id:'jardinero',    sector:'mantenimiento',key:'role_jardinero',  icon:'leaf'  },
+    { id:'mantenimiento',sector:'mantenimiento',key:'role_mantenimiento',icon:'wrench'},
+    { id:'piscinero',    sector:'mantenimiento',key:'role_piscinero',  icon:'wave'  },
+    /* nautica */
+    { id:'patron',       sector:'nautica',    key:'role_patron',       icon:'anchor'},
+    { id:'marinero',     sector:'nautica',    key:'role_marinero',     icon:'rope'  },
+    { id:'azafata_barco',sector:'nautica',    key:'role_azafata_barco',icon:'tray'  },
+    { id:'limpieza_barco',sector:'nautica',   key:'role_limpieza_barco',icon:'spray'},
+    /* eventos y noche */
+    { id:'pr',           sector:'eventos',    key:'role_pr',           icon:'mic'   },
+    { id:'azafata',      sector:'eventos',    key:'role_azafata',      icon:'star'  },
+    { id:'seguridad',    sector:'eventos',    key:'role_seguridad',    icon:'shieldline'},
+    { id:'tecnico',      sector:'eventos',    key:'role_tecnico',      icon:'sound' },
+    { id:'runner',       sector:'eventos',    key:'role_runner',       icon:'run'   },
+    { id:'montaje',      sector:'eventos',    key:'role_montaje',      icon:'box'   },
+    /* logistica */
+    { id:'chofer',       sector:'logistica',  key:'role_chofer',       icon:'van'   },
+    { id:'rider',        sector:'logistica',  key:'role_rider',        icon:'bike'  },
+    { id:'mozo',         sector:'logistica',  key:'role_mozo',         icon:'box'   },
+    { id:'almacen',      sector:'logistica',  key:'role_almacen',      icon:'shelf' }
   ];
 
   /* --- Negocios (nombres de fantasia, zonas reales) ---------------------- */
@@ -141,6 +169,24 @@ const IE_DATA = (function () {
     ['w47','Leo M.',       ['electricista','mantenimiento'],['santfrancesc','espujols','lasavina','santferran'],'certified',92,24,100,{es:'C2',en:'B2',it:'B1'},['baja_tension!','climatizacion!'],  '1:0900-1600,2:0900-1600,3:0900-1600,4:0900-1600,6:0900-1600','c8'],
     ['w48','Marina P.',    ['recepcion'],                ['eivissa','talamanca','figueretes','bossa'],          'certified',90,33, 99,{es:'C2',en:'C1',it:'B2'},['pms!'],                            '2:0900-1700,3:0900-1700,4:0900-1700,5:0900-1700,6:0900-1700','c6'],
     ['w49','Adrián C.',    ['ayudante','cocinero'],      ['eivissa','bossa','figueretes','santjordi'],          'verified', 74, 5, 84,{es:'C2',en:'A2'},        ['cocinafria'],                      '0:2000-0200,2:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c15'],
+    ['w51','Xavi B.',      ['patron','marinero'],          ['lasavina','santfrancesc','espujols'],               'certified',94,38,100,{es:'C2',en:'B2',it:'A2'},['nautica!','motor!'],               '1:0800-1800,2:0800-1800,3:0800-1800,4:0800-1800,5:0800-1800,6:0800-1800','c14'],
+    ['w52','Nerea C.',     ['azafata_barco','camarero'],   ['lasavina','espujols','santfrancesc'],               'proven',   87,21, 97,{es:'C2',en:'C1',it:'B1'},['sala!','nautica'],                 '1:0900-1900,3:0900-1900,4:0900-1900,5:0900-1900,6:0900-1900','c14'],
+    ['w53','Kiko M.',      ['marinero','limpieza_barco'],  ['eivissa','talamanca','figueretes'],                 'proven',   84,17, 95,{es:'C2',en:'A2'},        ['nautica!'],                        '1:0700-1500,2:0700-1500,3:0700-1500,4:0700-1500,5:0700-1500','c12'],
+    ['w54','Alba R.',      ['limpieza_barco','limpieza'],  ['lasavina','santfrancesc'],                          'verified', 76, 8, 90,{es:'C2'},                ['pisos'],                           '1:0800-1400,2:0800-1400,4:0800-1400,5:0800-1400','c14'],
+    ['w55','Dario P.',     ['patron'],                     ['eivissa','talamanca','bossa'],                      'certified',95,44,100,{es:'C1',en:'C1',it:'C2'},['nautica!','motor!'],               '2:0800-1800,3:0800-1800,4:0800-1800,5:0800-1800,6:0800-1800','c6'],
+    ['w56','Ivan T.',      ['seguridad'],                  ['bossa','eivissa','figueretes'],                     'certified',92,51,100,{es:'C2',en:'B1'},        ['control_accesos!','primeros_aux!'], '4:2200-0600,5:2200-0600,6:2200-0600,0:2200-0600','c2'],
+    ['w57','Marta S.',     ['azafata','pr'],               ['bossa','eivissa','santjordi'],                      'proven',   86,23, 96,{es:'C2',en:'C1',it:'B2'},['acogida!','idiomas!'],             '4:2000-0400,5:2000-0400,6:2000-0400,0:2000-0400','c2'],
+    ['w58','Leo G.',       ['tecnico'],                    ['bossa','santjordi','eivissa'],                      'certified',93,29,100,{es:'C1',en:'B2'},        ['audio!','luces!'],                 '3:1600-0200,4:1600-0200,5:1600-0200,6:1600-0200','c17'],
+    ['w59','Sonia V.',     ['runner','camarero'],          ['talamanca','eivissa','figueretes'],                 'proven',   83,15, 94,{es:'C2',en:'B1'},        ['bandeja!','ritmo!'],               '4:1900-0300,5:1900-0300,6:1900-0300,0:1900-0300','c6'],
+    ['w60','Hakim B.',     ['montaje','mozo'],             ['santjordi','bossa','eivissa'],                      'proven',   85,26, 98,{es:'B2',en:'A2'},        ['carga!','montaje!'],               '1:0700-1600,2:0700-1600,3:0700-1600,4:0700-1600,5:0700-1600','c17'],
+    ['w61','Rubén A.',     ['pr'],                         ['santantoni','caladebou','bossa'],                   'proven',   82,14, 92,{es:'C2',en:'B2',it:'B1'},['ventas!'],                         '4:2100-0500,5:2100-0500,6:2100-0500','c3'],
+    ['w62','Cristina B.',  ['housekeeping','limpieza'],    ['santantoni','caladebou','santjosep'],               'certified',91,47, 99,{es:'C2',en:'A2'},        ['pisos!','lavanderia!','control!'],  '1:0800-1600,2:0800-1600,3:0800-1600,4:0800-1600,5:0800-1600','c3'],
+    ['w63','Marco V.',     ['conserje','recepcion'],       ['eivissa','talamanca','santaeularia'],               'certified',90,35, 98,{es:'C2',en:'C1',it:'C2'},['pms!','concierge!'],               '1:1500-2300,2:1500-2300,3:1500-2300,5:1500-2300,6:1500-2300','c6'],
+    ['w64','Toni F.',      ['fontanero','mantenimiento'],  ['santaeularia','escanar','santjoan'],                'certified',93,31,100,{es:'C2'},                ['fontaneria!','urgencias!'],        '1:0800-1700,2:0800-1700,3:0800-1700,4:0800-1700,5:0800-1700','c12'],
+    ['w65','Jose L.',      ['piscinero','mantenimiento'],  ['santjosep','santjordi','caladebou'],                'proven',   86,22, 97,{es:'C2',en:'A2'},        ['piscinas!','quimica!'],            '1:0800-1500,2:0800-1500,3:0800-1500,4:0800-1500,5:0800-1500','c9'],
+    ['w66','Andrea M.',    ['chofer'],                     ['eivissa','bossa','santjordi','talamanca'],          'certified',92,40,100,{es:'C2',en:'B2',it:'C2'},['btp!','vip!'],                     '1:0900-2100,2:0900-2100,4:0900-2100,5:0900-2100,6:0900-2100','c6'],
+    ['w67','Samir K.',     ['rider','mozo'],               ['eivissa','figueretes','bossa'],                     'proven',   81,19, 93,{es:'B2',en:'A2'},        ['moto!'],                           '2:1800-0000,3:1800-0000,4:1800-0000,5:1800-0000,6:1800-0000','c15'],
+    ['w68','Elena P.',     ['almacen','mozo'],             ['santjordi','eivissa','santjosep'],                  'proven',   84,24, 96,{es:'C2'},                ['inventario!','carretilla!'],       '1:0700-1500,2:0700-1500,3:0700-1500,4:0700-1500,5:0700-1500','c17'],
     ['w50','Berta L.',     ['camarero','barman'],        ['santjoan','santaeularia','escanar','santrafel'],     'certified',91,36, 98,{es:'C2',en:'B2',it:'C1'},['sala!','coctel!','vinos!'],        '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c18']
   ];
 
