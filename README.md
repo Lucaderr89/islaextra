@@ -45,6 +45,7 @@ nessuna installazione, nessuna dipendenza esterna.
 
     index.html                pagina della demo
     questionario/index.html   questionario operativo
+    assets/img/logo.png       marchio (magenta, nero, calce)
     assets/css/style.css      stili della demo
     assets/css/quiz.css       stili del questionario
     assets/js/i18n.js         traduzioni ES / EN / IT
@@ -53,8 +54,21 @@ nessuna installazione, nessuna dipendenza esterna.
     assets/js/quiz-data.js    domande del questionario
     assets/js/quiz.js         logica del questionario
 
-Il matching lavora davvero sui dati: filtra per ruolo, zona, disponibilità reale,
-lingua, livello di fiducia ed esperienza, poi ordina per affidabilità.
+Il matching lavora davvero sui dati: incrocia l'orario esatto richiesto con la
+finestra di disponibilità di ogni lavoratore (turni che scavallano la mezzanotte
+compresi), poi filtra per ruolo, zona e zone limitrofe, lingua, livello di fiducia
+ed esperienza, e ordina per affidabilità.
+
+## Identità
+
+Direzione **CALÇ**: colori campionati dalla luce reale delle isole (calce, inchiostro,
+terra rossa ferrosa, bougainvillea), tipografia Zodiak e Switzer, bordi netti e ombre
+tagliate al posto di gradienti e angoli arrotondati. Il marchio è un cerchio tracciato
+a mano con il segmento che rientra — il posto vuoto che viene coperto — con dentro la
+figura di chi lo occupa.
+
+Il magenta è riservato al marchio: nella pagina non compare altrove, così il logo
+resta riconoscibile.
 
 ## Lingue
 

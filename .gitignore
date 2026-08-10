@@ -1,4 +1,7 @@
 # Documenti interni: non vanno in un repository pubblico
+isla-extra-risposte-*
+*risposte*.json
+*risposte*.txt
 CONCEPT.md
 *.pdf
 

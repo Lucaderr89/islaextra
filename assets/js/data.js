@@ -86,68 +86,77 @@ const IE_DATA = (function () {
   ];
 
   /* --- Trabajadores ------------------------------------------------------
-     avail: 'dow:slots' separados por coma. dow 0=domingo ... 6=sabado
-     slots: m = manana, a = tarde, e = noche
+     avail: 'dow:HHMM-HHMM' separados por coma. dow 0=domingo ... 6=sabado
+     Horario real de disponibilidad; si la hora final es menor que la
+     inicial, el turno cruza la medianoche.
      skills: 'id' | 'id!' confirmada en el trabajo | 'id?' en revision       */
 
   const RAW = [
-    ['w1','Marco C.',      ['camarero','barman'],        ['santaeularia','escanar','eivissa','santjoan'],       'certified',96,48,100,{es:'C1',en:'B2',it:'C2'},['coctel!','bandeja!','tpv'],        '0:ae,2:ae,3:ae,4:ae,5:ae,6:ae','c1'],
-    ['w2','Ana R.',        ['camarero','recepcion'],     ['santantoni','caladebou','santjosep'],                'certified',94,61, 98,{es:'C2',en:'C1',it:'A2'},['sala!','tpv!'],                    '1:e,3:e,4:e,5:e,6:e','c3'],
-    ['w3','Luis F.',       ['ayudante','friegaplatos'],  ['bossa','figueretes','eivissa','santjordi'],          'verified', 71, 6, 83,{es:'C2',en:'A2'},        ['cocinafria'],                      '1:ae,3:ae,4:ae,5:ae,6:ae','c2'],
-    ['w4','Sofia B.',      ['cocinero'],                 ['santjosep','santjordi','bossa'],                     'certified',92,37,100,{es:'B2',en:'B1',it:'C2'},['partida!','alergenos!'],           '0:ae,2:ae,4:ae,5:ae,6:ae','c5'],
-    ['w5','Diego M.',      ['camarero'],                 ['espujols','santfrancesc','lasavina','santferran'],   'proven',   85,14, 93,{es:'C2',en:'B1'},        ['bandeja!','ingles_sala?'],         '0:ae,3:ae,4:ae,5:ae,6:ae','c8'],
-    ['w6','Elena V.',      ['limpieza'],                 ['santjosep','caladebou','santantoni'],                'certified',90,52, 99,{es:'C2',en:'A1'},        ['pisos!','lavanderia!'],            '1:ma,2:ma,3:ma,4:ma,5:ma','c3'],
-    ['w7','Tomás H.',      ['electricista','mantenimiento'],['eivissa','santrafel','santjordi','bossa'],        'certified',95,29,100,{es:'C2',en:'B1'},        ['baja_tension!','climatizacion!'],  '1:m,2:m,3:m,4:m,6:m','c12'],
-    ['w8','Nadia K.',      ['barman','camarero'],        ['bossa','figueretes','eivissa'],                      'proven',   88,19, 95,{es:'B2',en:'C1',it:'B1'},['coctel!','tpv'],                   '0:ae,2:ae,4:ae,5:ae,6:ae','c2'],
-    ['w9','Pau S.',        ['jardinero','mantenimiento'],['santjosep','santjoan','santaeularia','santrafel'],   'proven',   82,11, 91,{es:'C2',en:'A2'},        ['poda!','riego'],                   '2:ma,3:ma,4:ma,5:ma,6:ma','c11'],
-    ['w10','Giulia T.',    ['camarero'],                 ['eivissa','talamanca','figueretes'],                  'verified', 74, 4,100,{es:'B1',en:'B2',it:'C2'},['sala'],                            '0:ae,3:ae,4:ae,5:ae,6:ae','c4'],
-    ['w11','Rachid A.',    ['friegaplatos','ayudante'],  ['santantoni','caladebou','santjosep'],                'proven',   86,23,100,{es:'B2',en:'A2'},        ['cocinafria!'],                     '1:ae,2:ae,3:ae,4:ae,6:ae','c3'],
-    ['w12','Carla P.',     ['recepcion','camarero'],     ['santaeularia','escanar','santjoan'],                 'certified',93,41, 98,{es:'C2',en:'C1',it:'B2'},['pms!','sala!'],                    '1:ma,2:ma,4:ma,5:ma,6:ma','c1'],
-    ['w13','Iván L.',      ['cocinero','ayudante'],      ['espujols','santferran','santfrancesc'],              'proven',   84,17, 94,{es:'C2',en:'B1',it:'A2'},['partida!','alergenos'],            '1:ae,3:ae,4:ae,5:ae,6:ae','c8'],
-    ['w14','Marta O.',     ['limpieza'],                 ['espujols','lasavina','santfrancesc','santferran'],   'proven',   87,26, 97,{es:'C2'},                ['pisos!'],                          '2:ma,3:ma,4:ma,5:ma,6:ma','c14'],
-    ['w15','Kevin D.',     ['camarero','friegaplatos'],  ['bossa','santjordi','figueretes'],                    'verified', 68, 3, 67,{es:'B1',en:'B2'},        ['bandeja'],                         '0:ae,3:ae,4:ae,5:ae,6:ae','c2'],
-    ['w16','Lucía G.',     ['barman'],                   ['santantoni','caladebou','santjosep'],                'certified',91,44, 99,{es:'C2',en:'B2'},        ['coctel!','barra_volumen!'],        '0:ae,2:ae,3:ae,4:ae,5:ae,6:ae','c3'],
-    ['w17','Andrés N.',    ['mantenimiento','electricista'],['santaeularia','santjoan','escanar','santrafel'],  'proven',   83,13, 92,{es:'C2'},                ['fontaneria!','baja_tension?'],     '1:m,2:m,3:m,4:m,6:m','c12'],
-    ['w18','Chiara F.',    ['camarero','recepcion'],     ['talamanca','eivissa','figueretes','bossa'],          'proven',   89,21,100,{es:'B2',en:'C1',it:'C2'},['sala!','tpv!'],                    '0:ae,2:ae,4:ae,5:ae,6:ae','c6'],
-    ['w19','Óscar B.',     ['cocinero'],                 ['eivissa','santjordi','bossa','figueretes'],          'certified',97,73,100,{es:'C2',en:'B1'},        ['partida!','jefe_partida!','alergenos!'],'0:ae,2:ae,4:ae,5:ae,6:ae','c4'],
-    ['w20','Yasmin E.',    ['limpieza','ayudante'],      ['bossa','figueretes','santjordi','eivissa'],          'verified', 76, 7, 86,{es:'B2',en:'A2'},        ['pisos'],                           '1:m,3:m,4:m,5:m,6:m','c6'],
-    ['w21','Bruno R.',     ['barman','camarero'],        ['santaeularia','escanar','santjoan','santrafel'],     'proven',   85,16, 94,{es:'C1',en:'B2',it:'C2'},['coctel','bandeja!'],               '0:ae,2:ae,3:ae,4:ae,5:ae,6:ae','c1'],
-    ['w22','Aitana M.',    ['camarero'],                 ['santjosep','caladebou','santantoni','santjordi'],    'proven',   88,24, 96,{es:'C2',en:'B2'},        ['sala!','vinos'],                   '1:e,3:e,4:e,5:e,6:e','c5'],
-    ['w23','Jordi V.',     ['jardinero'],                ['santjoan','santaeularia','santrafel','escanar'],     'certified',90,31,100,{es:'C2',en:'A2'},        ['poda!','riego!'],                  '1:ma,2:ma,4:ma,5:ma,6:ma','c11'],
-    ['w24','Noa S.',       ['ayudante','camarero'],      ['espujols','santferran','santfrancesc','lasavina'],   'verified', 72, 5, 80,{es:'C2',en:'B1',it:'B1'},['cocinafria'],                      '0:ae,2:ae,4:ae,5:ae,6:ae','c8'],
-    ['w25','Hugo T.',      ['recepcion'],                ['santantoni','caladebou','bossa','santjosep'],        'proven',   86,18, 97,{es:'C2',en:'C1',it:'A2'},['pms!'],                            '1:ae,2:ae,3:ae,5:ae,6:ae','c3'],
-    ['w26','Valeria I.',   ['cocinero','ayudante'],      ['santaeularia','escanar','santjoan'],                 'proven',   87,20, 95,{es:'B2',en:'A2',it:'C2'},['partida!','alergenos!'],           '1:ae,2:ae,3:ae,4:ae,6:ae','c1'],
-    ['w27','Said B.',      ['friegaplatos','ayudante'],  ['eivissa','figueretes','bossa','talamanca'],          'proven',   84,22, 98,{es:'B2',en:'A2'},        ['cocinafria!'],                     '2:e,3:e,4:e,5:e,6:e','c15'],
-    ['w28','Paula N.',     ['camarero','barman'],        ['santjordi','bossa','santjosep','eivissa'],           'certified',92,39, 99,{es:'C2',en:'B2',it:'B1'},['bandeja!','coctel!','tpv!'],       '0:ae,2:ae,4:ae,5:ae,6:ae','c17'],
-    ['w29','Mihai P.',     ['mantenimiento'],            ['santantoni','caladebou','santjosep','santrafel'],    'proven',   85,19, 96,{es:'B2',en:'A2'},        ['fontaneria!','climatizacion'],     '2:ma,3:ma,4:ma,5:ma,6:ma','c11'],
-    ['w30','Irene S.',     ['limpieza'],                 ['eivissa','talamanca','figueretes','bossa'],          'proven',   88,28, 98,{es:'C2',en:'A2'},        ['pisos!','lavanderia'],             '1:m,3:m,4:m,5:m,6:m','c6'],
-    ['w31','Toni R.',      ['electricista'],             ['santaeularia','santjoan','escanar','santrafel'],     'certified',94,26,100,{es:'C2',en:'B1'},        ['baja_tension!','climatizacion!'],  '1:ma,2:ma,3:ma,4:ma,5:ma','c1'],
-    ['w32','Fatou D.',     ['camarero','friegaplatos'],  ['santantoni','caladebou'],                            'verified', 75, 8, 88,{es:'B1',en:'B2',it:'A2'},['bandeja'],                         '1:e,3:e,4:e,5:e,6:e','c3'],
-    ['w33','Alberto Q.',   ['cocinero'],['santantoni','caladebou','santjosep'],               'certified',93,55,100,{es:'C2',en:'B2'},        ['partida!','jefe_partida!'],        '1:ae,3:ae,4:ae,5:ae,6:ae','c3'],
-    ['w34','Rita M.',      ['recepcion','camarero'],     ['espujols','santfrancesc','lasavina'],                'proven',   86,17, 96,{es:'C2',en:'C1',it:'C2'},['pms!','sala'],                     '1:ma,3:ma,4:ma,5:ma,6:ma','c14'],
-    ['w35','Nico F.',      ['barman'],                   ['eivissa','figueretes','talamanca','bossa'],          'proven',   87,25, 97,{es:'C1',en:'B2',it:'C2'},['coctel!','barra_volumen!'],        '0:ae,3:ae,4:ae,5:ae,6:ae','c4'],
-    ['w36','Gemma T.',     ['jardinero','mantenimiento'],['eivissa','santjordi','santjosep','bossa'],           'proven',   84,14, 93,{es:'C2',en:'A2'},        ['poda!','riego!'],                  '1:ma,2:ma,3:ma,4:ma,5:ma','c12'],
-    ['w37','Omar L.',      ['ayudante','friegaplatos'],  ['santaeularia','escanar','santjoan'],                 'verified', 73, 6, 85,{es:'B2'},                ['cocinafria'],                      '2:e,3:e,4:e,5:e,6:e','c1'],
-    ['w38','Silvia C.',    ['limpieza','recepcion'],     ['santaeularia','escanar','santjoan','santrafel'],     'certified',91,47, 99,{es:'C2',en:'B1',it:'B2'},['pisos!','lavanderia!','pms'],      '1:ma,2:ma,4:ma,5:ma,6:ma','c16'],
-    ['w39','Jonas W.',     ['camarero'],                 ['santfrancesc','espujols','santferran'],              'proven',   85,15, 95,{es:'B1',en:'C2',it:'B1'},['sala!','vinos'],                   '1:e,2:e,3:e,5:e,6:e','c7'],
-    ['w40','Cristina A.',  ['cocinero','ayudante'],      ['santantoni','caladebou','santjosep','santrafel'],    'proven',   86,21, 96,{es:'C2',en:'A2'},        ['partida!','alergenos!'],           '1:e,2:e,4:e,5:e,6:e','c3'],
-    ['w41','Éric B.',      ['mantenimiento','electricista'],['espujols','santfrancesc','lasavina','santferran'],'proven',   83,12, 92,{es:'B2',en:'B1'},        ['fontaneria!','baja_tension'],      '1:ma,2:ma,3:ma,4:ma,5:ma','c14'],
-    ['w42','Laia F.',      ['camarero','recepcion'],     ['santjosep','santjordi','caladebou','bossa'],         'proven',   87,23, 97,{es:'C2',en:'B2',it:'A2'},['sala!','tpv!'],                    '1:e,3:e,4:e,5:e,6:e','c5'],
-    ['w43','Pere J.',      ['jardinero'],                ['santfrancesc','espujols','lasavina','santferran'],   'proven',   82,10, 90,{es:'C2'},                ['poda!','riego'],                   '1:ma,2:ma,4:ma,5:ma,6:ma','c7'],
-    ['w44','Alina V.',     ['limpieza'],                 ['santantoni','caladebou','santjosep','santrafel'],    'proven',   85,20, 96,{es:'B2',en:'A2'},        ['pisos!'],                          '2:ma,3:ma,4:ma,5:ma,6:ma','c3'],
-    ['w45','Dani S.',      ['barman','camarero'],        ['santjosep','santjordi','bossa','caladebou'],         'verified', 77, 9, 89,{es:'C2',en:'B1'},        ['coctel','bandeja'],                '0:ae,3:ae,4:ae,5:ae,6:ae','c17'],
-    ['w46','Nuria E.',     ['friegaplatos'],             ['santaeularia','escanar','santjoan','santrafel'],     'proven',   84,18, 97,{es:'C2'},                ['cocinafria!'],                     '1:ae,2:ae,3:ae,4:ae,6:ae','c1'],
-    ['w47','Leo M.',       ['electricista','mantenimiento'],['santfrancesc','espujols','lasavina','santferran'],'certified',92,24,100,{es:'C2',en:'B2',it:'B1'},['baja_tension!','climatizacion!'],  '1:m,2:m,3:m,4:m,6:m','c8'],
-    ['w48','Marina P.',    ['recepcion'],                ['eivissa','talamanca','figueretes','bossa'],          'certified',90,33, 99,{es:'C2',en:'C1',it:'B2'},['pms!'],                            '2:mae,3:mae,4:mae,5:mae,6:mae','c6'],
-    ['w49','Adrián C.',    ['ayudante','cocinero'],      ['eivissa','bossa','figueretes','santjordi'],          'verified', 74, 5, 84,{es:'C2',en:'A2'},        ['cocinafria'],                      '0:ae,2:ae,4:ae,5:ae,6:ae','c15'],
-    ['w50','Berta L.',     ['camarero','barman'],        ['santjoan','santaeularia','escanar','santrafel'],     'certified',91,36, 98,{es:'C2',en:'B2',it:'C1'},['sala!','coctel!','vinos!'],        '0:ae,3:ae,4:ae,5:ae,6:ae','c18']
+    ['w1','Marco C.',      ['camarero','barman'],        ['santaeularia','escanar','eivissa','santjoan'],       'certified',96,48,100,{es:'C1',en:'B2',it:'C2'},['coctel!','bandeja!','tpv'],        '0:1900-0100,2:1900-0100,3:1900-0100,4:1900-0100,5:1900-0100,6:1900-0100','c1'],
+    ['w2','Ana R.',        ['camarero','recepcion'],     ['santantoni','caladebou','santjosep'],                'certified',94,61, 98,{es:'C2',en:'C1',it:'A2'},['sala!','tpv!'],                    '1:2000-0200,3:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c3'],
+    ['w3','Luis F.',       ['ayudante','friegaplatos'],  ['bossa','figueretes','eivissa','santjordi'],          'verified', 71, 6, 83,{es:'C2',en:'A2'},        ['cocinafria'],                      '1:1730-2330,3:1730-2330,4:1730-2330,5:1730-2330,6:1730-2330','c2'],
+    ['w4','Sofia B.',      ['cocinero'],                 ['santjosep','santjordi','bossa'],                     'certified',92,37,100,{es:'B2',en:'B1',it:'C2'},['partida!','alergenos!'],           '0:2000-0200,2:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c5'],
+    ['w5','Diego M.',      ['camarero'],                 ['espujols','santfrancesc','lasavina','santferran'],   'proven',   85,14, 93,{es:'C2',en:'B1'},        ['bandeja!','ingles_sala?'],         '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c8'],
+    ['w6','Elena V.',      ['limpieza'],                 ['santjosep','caladebou','santantoni'],                'certified',90,52, 99,{es:'C2',en:'A1'},        ['pisos!','lavanderia!'],            '1:0800-1500,2:0800-1500,3:0800-1500,4:0800-1500,5:0800-1500','c3'],
+    ['w7','Tomás H.',      ['electricista','mantenimiento'],['eivissa','santrafel','santjordi','bossa'],        'certified',95,29,100,{es:'C2',en:'B1'},        ['baja_tension!','climatizacion!'],  '1:0900-1600,2:0900-1600,3:0900-1600,4:0900-1600,6:0900-1600','c12'],
+    ['w8','Nadia K.',      ['barman','camarero'],        ['bossa','figueretes','eivissa'],                      'proven',   88,19, 95,{es:'B2',en:'C1',it:'B1'},['coctel!','tpv'],                   '0:2030-0230,2:2030-0230,4:2030-0230,5:2030-0230,6:2030-0230','c2'],
+    ['w9','Pau S.',        ['jardinero','mantenimiento'],['santjosep','santjoan','santaeularia','santrafel'],   'proven',   82,11, 91,{es:'C2',en:'A2'},        ['poda!','riego'],                   '2:0800-1400,3:0800-1400,4:0800-1400,5:0800-1400,6:0800-1400','c11'],
+    ['w10','Giulia T.',    ['camarero'],                 ['eivissa','talamanca','figueretes'],                  'verified', 74, 4,100,{es:'B1',en:'B2',it:'C2'},['sala'],                            '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c4'],
+    ['w11','Rachid A.',    ['friegaplatos','ayudante'],  ['santantoni','caladebou','santjosep'],                'proven',   86,23,100,{es:'B2',en:'A2'},        ['cocinafria!'],                     '1:1800-0000,2:1800-0000,3:1800-0000,4:1800-0000,6:1800-0000','c3'],
+    ['w12','Carla P.',     ['recepcion','camarero'],     ['santaeularia','escanar','santjoan'],                 'certified',93,41, 98,{es:'C2',en:'C1',it:'B2'},['pms!','sala!'],                    '1:1500-2300,2:1500-2300,4:1500-2300,5:1500-2300,6:1500-2300','c1'],
+    ['w13','Iván L.',      ['cocinero','ayudante'],      ['espujols','santferran','santfrancesc'],              'proven',   84,17, 94,{es:'C2',en:'B1',it:'A2'},['partida!','alergenos'],            '1:1730-2330,3:1730-2330,4:1730-2330,5:1730-2330,6:1730-2330','c8'],
+    ['w14','Marta O.',     ['limpieza'],                 ['espujols','lasavina','santfrancesc','santferran'],   'proven',   87,26, 97,{es:'C2'},                ['pisos!'],                          '2:0800-1400,3:0800-1400,4:0800-1400,5:0800-1400,6:0800-1400','c14'],
+    ['w15','Kevin D.',     ['camarero','friegaplatos'],  ['bossa','santjordi','figueretes'],                    'verified', 68, 3, 67,{es:'B1',en:'B2'},        ['bandeja'],                         '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c2'],
+    ['w16','Lucía G.',     ['barman'],                   ['santantoni','caladebou','santjosep'],                'certified',91,44, 99,{es:'C2',en:'B2'},        ['coctel!','barra_volumen!'],        '0:1900-0100,2:1900-0100,3:1900-0100,4:1900-0100,5:1900-0100,6:1900-0100','c3'],
+    ['w17','Andrés N.',    ['mantenimiento','electricista'],['santaeularia','santjoan','escanar','santrafel'],  'proven',   83,13, 92,{es:'C2'},                ['fontaneria!','baja_tension?'],     '1:0900-1600,2:0900-1600,3:0900-1600,4:0900-1600,6:0900-1600','c12'],
+    ['w18','Chiara F.',    ['camarero','recepcion'],     ['talamanca','eivissa','figueretes','bossa'],          'proven',   89,21,100,{es:'B2',en:'C1',it:'C2'},['sala!','tpv!'],                    '0:2030-0230,2:2030-0230,4:2030-0230,5:2030-0230,6:2030-0230','c6'],
+    ['w19','Óscar B.',     ['cocinero'],                 ['eivissa','santjordi','bossa','figueretes'],          'certified',97,73,100,{es:'C2',en:'B1'},        ['partida!','jefe_partida!','alergenos!'],'0:2000-0200,2:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c4'],
+    ['w20','Yasmin E.',    ['limpieza','ayudante'],      ['bossa','figueretes','santjordi','eivissa'],          'verified', 76, 7, 86,{es:'B2',en:'A2'},        ['pisos'],                           '1:1000-1700,3:1000-1700,4:1000-1700,5:1000-1700,6:1000-1700','c6'],
+    ['w21','Bruno R.',     ['barman','camarero'],        ['santaeularia','escanar','santjoan','santrafel'],     'proven',   85,16, 94,{es:'C1',en:'B2',it:'C2'},['coctel','bandeja!'],               '0:1900-0100,2:1900-0100,3:1900-0100,4:1900-0100,5:1900-0100,6:1900-0100','c1'],
+    ['w22','Aitana M.',    ['camarero'],                 ['santjosep','caladebou','santantoni','santjordi'],    'proven',   88,24, 96,{es:'C2',en:'B2'},        ['sala!','vinos'],                   '1:2000-0200,3:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c5'],
+    ['w23','Jordi V.',     ['jardinero'],                ['santjoan','santaeularia','santrafel','escanar'],     'certified',90,31,100,{es:'C2',en:'A2'},        ['poda!','riego!'],                  '1:0730-1430,2:0730-1430,4:0730-1430,5:0730-1430,6:0730-1430','c11'],
+    ['w24','Noa S.',       ['ayudante','camarero'],      ['espujols','santferran','santfrancesc','lasavina'],   'verified', 72, 5, 80,{es:'C2',en:'B1',it:'B1'},['cocinafria'],                      '0:2000-0200,2:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c8'],
+    ['w25','Hugo T.',      ['recepcion'],                ['santantoni','caladebou','bossa','santjosep'],        'proven',   86,18, 97,{es:'C2',en:'C1',it:'A2'},['pms!'],                            '1:0700-1500,2:0700-1500,3:0700-1500,5:0700-1500,6:0700-1500','c3'],
+    ['w26','Valeria I.',   ['cocinero','ayudante'],      ['santaeularia','escanar','santjoan'],                 'proven',   87,20, 95,{es:'B2',en:'A2',it:'C2'},['partida!','alergenos!'],           '1:1800-0000,2:1800-0000,3:1800-0000,4:1800-0000,6:1800-0000','c1'],
+    ['w27','Said B.',      ['friegaplatos','ayudante'],  ['eivissa','figueretes','bossa','talamanca'],          'proven',   84,22, 98,{es:'B2',en:'A2'},        ['cocinafria!'],                     '2:1900-0100,3:1900-0100,4:1900-0100,5:1900-0100,6:1900-0100','c15'],
+    ['w28','Paula N.',     ['camarero','barman'],        ['santjordi','bossa','santjosep','eivissa'],           'certified',92,39, 99,{es:'C2',en:'B2',it:'B1'},['bandeja!','coctel!','tpv!'],       '0:2030-0230,2:2030-0230,4:2030-0230,5:2030-0230,6:2030-0230','c17'],
+    ['w29','Mihai P.',     ['mantenimiento'],            ['santantoni','caladebou','santjosep','santrafel'],    'proven',   85,19, 96,{es:'B2',en:'A2'},        ['fontaneria!','climatizacion'],     '2:0800-1400,3:0800-1400,4:0800-1400,5:0800-1400,6:0800-1400','c11'],
+    ['w30','Irene S.',     ['limpieza'],                 ['eivissa','talamanca','figueretes','bossa'],          'proven',   88,28, 98,{es:'C2',en:'A2'},        ['pisos!','lavanderia'],             '1:1000-1700,3:1000-1700,4:1000-1700,5:1000-1700,6:1000-1700','c6'],
+    ['w31','Toni R.',      ['electricista'],             ['santaeularia','santjoan','escanar','santrafel'],     'certified',94,26,100,{es:'C2',en:'B1'},        ['baja_tension!','climatizacion!'],  '1:0800-1500,2:0800-1500,3:0800-1500,4:0800-1500,5:0800-1500','c1'],
+    ['w32','Fatou D.',     ['camarero','friegaplatos'],  ['santantoni','caladebou'],                            'verified', 75, 8, 88,{es:'B1',en:'B2',it:'A2'},['bandeja'],                         '1:2000-0200,3:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c3'],
+    ['w33','Alberto Q.',   ['cocinero'],['santantoni','caladebou','santjosep'],               'certified',93,55,100,{es:'C2',en:'B2'},        ['partida!','jefe_partida!'],        '1:1730-2330,3:1730-2330,4:1730-2330,5:1730-2330,6:1730-2330','c3'],
+    ['w34','Rita M.',      ['recepcion','camarero'],     ['espujols','santfrancesc','lasavina'],                'proven',   86,17, 96,{es:'C2',en:'C1',it:'C2'},['pms!','sala'],                     '1:1400-2200,3:1400-2200,4:1400-2200,5:1400-2200,6:1400-2200','c14'],
+    ['w35','Nico F.',      ['barman'],                   ['eivissa','figueretes','talamanca','bossa'],          'proven',   87,25, 97,{es:'C1',en:'B2',it:'C2'},['coctel!','barra_volumen!'],        '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c4'],
+    ['w36','Gemma T.',     ['jardinero','mantenimiento'],['eivissa','santjordi','santjosep','bossa'],           'proven',   84,14, 93,{es:'C2',en:'A2'},        ['poda!','riego!'],                  '1:0800-1500,2:0800-1500,3:0800-1500,4:0800-1500,5:0800-1500','c12'],
+    ['w37','Omar L.',      ['ayudante','friegaplatos'],  ['santaeularia','escanar','santjoan'],                 'verified', 73, 6, 85,{es:'B2'},                ['cocinafria'],                      '2:1900-0100,3:1900-0100,4:1900-0100,5:1900-0100,6:1900-0100','c1'],
+    ['w38','Silvia C.',    ['limpieza','recepcion'],     ['santaeularia','escanar','santjoan','santrafel'],     'certified',91,47, 99,{es:'C2',en:'B1',it:'B2'},['pisos!','lavanderia!','pms'],      '1:0730-1430,2:0730-1430,4:0730-1430,5:0730-1430,6:0730-1430','c16'],
+    ['w39','Jonas W.',     ['camarero'],                 ['santfrancesc','espujols','santferran'],              'proven',   85,15, 95,{es:'B1',en:'C2',it:'B1'},['sala!','vinos'],                   '1:1930-0130,2:1930-0130,3:1930-0130,5:1930-0130,6:1930-0130','c7'],
+    ['w40','Cristina A.',  ['cocinero','ayudante'],      ['santantoni','caladebou','santjosep','santrafel'],    'proven',   86,21, 96,{es:'C2',en:'A2'},        ['partida!','alergenos!'],           '1:1830-0030,2:1830-0030,4:1830-0030,5:1830-0030,6:1830-0030','c3'],
+    ['w41','Éric B.',      ['mantenimiento','electricista'],['espujols','santfrancesc','lasavina','santferran'],'proven',   83,12, 92,{es:'B2',en:'B1'},        ['fontaneria!','baja_tension'],      '1:0800-1500,2:0800-1500,3:0800-1500,4:0800-1500,5:0800-1500','c14'],
+    ['w42','Laia F.',      ['camarero','recepcion'],     ['santjosep','santjordi','caladebou','bossa'],         'proven',   87,23, 97,{es:'C2',en:'B2',it:'A2'},['sala!','tpv!'],                    '1:2000-0200,3:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c5'],
+    ['w43','Pere J.',      ['jardinero'],                ['santfrancesc','espujols','lasavina','santferran'],   'proven',   82,10, 90,{es:'C2'},                ['poda!','riego'],                   '1:0730-1430,2:0730-1430,4:0730-1430,5:0730-1430,6:0730-1430','c7'],
+    ['w44','Alina V.',     ['limpieza'],                 ['santantoni','caladebou','santjosep','santrafel'],    'proven',   85,20, 96,{es:'B2',en:'A2'},        ['pisos!'],                          '2:0800-1400,3:0800-1400,4:0800-1400,5:0800-1400,6:0800-1400','c3'],
+    ['w45','Dani S.',      ['barman','camarero'],        ['santjosep','santjordi','bossa','caladebou'],         'verified', 77, 9, 89,{es:'C2',en:'B1'},        ['coctel','bandeja'],                '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c17'],
+    ['w46','Nuria E.',     ['friegaplatos'],             ['santaeularia','escanar','santjoan','santrafel'],     'proven',   84,18, 97,{es:'C2'},                ['cocinafria!'],                     '1:1800-0000,2:1800-0000,3:1800-0000,4:1800-0000,6:1800-0000','c1'],
+    ['w47','Leo M.',       ['electricista','mantenimiento'],['santfrancesc','espujols','lasavina','santferran'],'certified',92,24,100,{es:'C2',en:'B2',it:'B1'},['baja_tension!','climatizacion!'],  '1:0900-1600,2:0900-1600,3:0900-1600,4:0900-1600,6:0900-1600','c8'],
+    ['w48','Marina P.',    ['recepcion'],                ['eivissa','talamanca','figueretes','bossa'],          'certified',90,33, 99,{es:'C2',en:'C1',it:'B2'},['pms!'],                            '2:0900-1700,3:0900-1700,4:0900-1700,5:0900-1700,6:0900-1700','c6'],
+    ['w49','Adrián C.',    ['ayudante','cocinero'],      ['eivissa','bossa','figueretes','santjordi'],          'verified', 74, 5, 84,{es:'C2',en:'A2'},        ['cocinafria'],                      '0:2000-0200,2:2000-0200,4:2000-0200,5:2000-0200,6:2000-0200','c15'],
+    ['w50','Berta L.',     ['camarero','barman'],        ['santjoan','santaeularia','escanar','santrafel'],     'certified',91,36, 98,{es:'C2',en:'B2',it:'C1'},['sala!','coctel!','vinos!'],        '0:2100-0300,3:2100-0300,4:2100-0300,5:2100-0300,6:2100-0300','c18']
   ];
 
+  /* 'dow:HHMM-HHMM' -> { dow: [inizioMin, fineMin] }.
+     Se la fine e' minore dell'inizio il turno scavalla la mezzanotte
+     e la fine viene espressa oltre i 1440 minuti.                        */
+  function hhmm(v){ return parseInt(v.slice(0,2),10)*60 + parseInt(v.slice(2),10); }
   function parseAvail(str){
     const out = {};
     str.split(',').forEach(function (chunk) {
-      const bits = chunk.split(':');
-      out[+bits[0]] = bits[1].split('');
+      const i = chunk.indexOf(':');
+      const dow = +chunk.slice(0,i);
+      const parts = chunk.slice(i+1).split('-');
+      let a = hhmm(parts[0]), b = hhmm(parts[1]);
+      if (b <= a) b += 1440;
+      out[dow] = [a,b];
     });
     return out;
   }
