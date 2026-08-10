@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isla Extra — direzione CALÇ</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,800&f[]=switzer@400,500,600,700&display=swap">
+<style>
+:root{
+  --calc:#F5F1E7;      /* calce al sole            */
+  --calc-2:#EAE4D6;    /* calce in penombra        */
+  --tinta:#141519;     /* nero d'ombra reale       */
+  --terra:#B35F3D;     /* sa terra roja            */
+  --terra-2:#844C3F;   /* terra in ombra           */
+  --buga:#CB258B;      /* bougainvillea            */
+  --cel:#023A6B;       /* cielo di mezzogiorno     */
+  --pedra:#BEB4B2;     /* pietra, bordi            */
+  --serif:'Zodiak', Georgia, serif;
+  --sans:'Switzer', system-ui, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--calc);color:var(--tinta);font-family:var(--sans);
+  font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3,p{margin:0}
+img{display:block;width:100%;height:auto}
+
+/* ---------- intestazione ---------- */
+.top{border-bottom:1px solid var(--tinta);padding:.9rem 0}
+.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.top b{font-family:var(--serif);font-weight:700;letter-spacing:-.02em;font-size:1.05rem}
+.top span{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--terra-2)}
+
+/* ---------- apertura ---------- */
+.hero{padding:clamp(3rem,9vw,7rem) 0 clamp(2rem,5vw,4rem)}
+.kicker{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);
+  border-bottom:1px solid var(--terra);display:inline-block;padding-bottom:.3rem;margin-bottom:1.6rem}
+.hero h1{font-family:var(--serif);font-weight:800;font-size:clamp(4rem,19vw,15rem);
+  line-height:.82;letter-spacing:-.045em;margin-bottom:1.6rem}
+.hero h1 em{font-style:normal;color:var(--terra)}
+.hero-sub{font-size:clamp(1.1rem,2.4vw,1.5rem);max-width:34ch;line-height:1.35;font-weight:500}
+.hero-meta{display:flex;gap:2.5rem;flex-wrap:wrap;margin-top:2.5rem;
+  border-top:1px solid var(--tinta);padding-top:1.2rem}
+.hero-meta div{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+.hero-meta b{display:block;font-family:var(--serif);font-size:1.5rem;letter-spacing:-.02em;
+  text-transform:none;font-weight:700;margin-top:.2rem}
+
+/* ---------- sezioni ---------- */
+section{padding:clamp(2.5rem,6vw,5rem) 0;border-top:1px solid var(--tinta)}
+.sec-n{font-family:var(--serif);font-size:.9rem;color:var(--terra)}
+.sec-t{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,5vw,3rem);
+  letter-spacing:-.035em;line-height:1.05;margin:.3rem 0 .7rem}
+.sec-d{max-width:56ch;color:#3c3a35}
+
+/* ---------- griglia immagini ---------- */
+.grid{display:grid;gap:1px;background:var(--tinta);border:1px solid var(--tinta);margin-top:2.2rem}
+@media(min-width:760px){.grid{grid-template-columns:repeat(6,1fr)}}
+figure{margin:0;background:var(--calc);position:relative;overflow:hidden}
+figure img{aspect-ratio:4/3;object-fit:cover}
+figcaption{position:absolute;left:0;bottom:0;background:var(--calc);
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .7rem;
+  border-top:1px solid var(--tinta);border-right:1px solid var(--tinta)}
+.g-wide{grid-column:span 4}
+.g-half{grid-column:span 2}
+.g-third{grid-column:span 2}
+
+/* ---------- palette ---------- */
+.pal{display:grid;gap:1px;background:var(--tinta);border:1px solid var(--tinta);margin-top:2.2rem}
+@media(min-width:640px){.pal{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:980px){.pal{grid-template-columns:repeat(6,1fr)}}
+.sw{background:var(--calc)}
+.sw i{display:block;height:120px}
+.sw div{padding:.7rem .8rem;border-top:1px solid var(--tinta)}
+.sw b{display:block;font-family:var(--serif);font-size:1.05rem;letter-spacing:-.01em}
+.sw code{font-size:.78rem;letter-spacing:.06em;color:#5a564e}
+.sw small{display:block;font-size:.72rem;color:#7a746a;margin-top:.25rem;line-height:1.3}
+
+/* ---------- tipografia ---------- */
+.type{display:grid;gap:1.5rem;margin-top:2.2rem}
+@media(min-width:820px){.type{grid-template-columns:1fr 1fr}}
+.tcard{border:1px solid var(--tinta);padding:1.4rem}
+.tcard .lab{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--terra)}
+.tspec{font-family:var(--serif);font-size:clamp(3rem,8vw,5rem);line-height:.95;
+  letter-spacing:-.04em;font-weight:800;margin:.5rem 0}
+.tspec-2{font-family:var(--sans);font-size:clamp(2.2rem,6vw,3.4rem);font-weight:600;
+  letter-spacing:-.03em;line-height:1.05;margin:.5rem 0}
+.glyphs{font-size:1.1rem;letter-spacing:.08em;color:#5a564e;word-break:break-all}
+.tnote{font-size:.86rem;color:#5a564e;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--pedra)}
+
+/* ---------- applicazione ---------- */
+.demo{border:1px solid var(--tinta);margin-top:2.2rem;background:var(--calc)}
+.demo-bar{display:flex;justify-content:space-between;align-items:center;
+  padding:.7rem 1.1rem;border-bottom:1px solid var(--tinta);font-size:.8rem}
+.demo-bar b{font-family:var(--serif);font-size:1rem}
+.demo-bar span{color:var(--terra);letter-spacing:.12em;text-transform:uppercase;font-size:.68rem}
+.demo-body{display:grid;gap:0}
+@media(min-width:860px){.demo-body{grid-template-columns:1.15fr .85fr}}
+.demo-l{padding:clamp(1.6rem,4vw,3rem)}
+.demo-r{border-top:1px solid var(--tinta);position:relative;min-height:280px}
+@media(min-width:860px){.demo-r{border-top:0;border-left:1px solid var(--tinta)}}
+.demo-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.demo-h{font-family:var(--serif);font-weight:800;font-size:clamp(2.4rem,6.5vw,4.2rem);
+  line-height:.92;letter-spacing:-.04em}
+.demo-h em{font-style:normal;color:var(--buga)}
+.demo-p{margin-top:1rem;max-width:38ch;color:#3c3a35}
+.demo-cta{display:inline-flex;align-items:center;gap:.6rem;margin-top:1.6rem;
+  background:var(--tinta);color:var(--calc);padding:.75rem 1.4rem;font-weight:600;font-size:.95rem}
+.demo-cta::after{content:"→"}
+.demo-stats{display:flex;gap:2rem;margin-top:2rem;border-top:1px solid var(--tinta);padding-top:1rem;flex-wrap:wrap}
+.demo-stats div{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#5a564e}
+.demo-stats b{display:block;font-family:var(--serif);font-size:1.8rem;color:var(--tinta);
+  letter-spacing:-.03em;text-transform:none}
+
+/* ---------- confronto ---------- */
+.vs{display:grid;gap:1.5rem;margin-top:2.2rem}
+@media(min-width:760px){.vs{grid-template-columns:1fr 1fr}}
+.vs-col{border:1px solid var(--tinta);padding:1.3rem}
+.vs-col h4{margin:0 0 .8rem;font-family:var(--serif);font-size:1.15rem;letter-spacing:-.02em}
+.vs-col ul{margin:0;padding:0;list-style:none;font-size:.9rem}
+.vs-col li{padding:.42rem 0;border-bottom:1px solid var(--pedra);display:flex;gap:.6rem}
+.vs-col li:last-child{border-bottom:0}
+.vs-col li::before{content:"—";color:var(--pedra);flex:none}
+.vs-old{background:var(--calc-2)}
+.vs-old li::before{content:"×";color:#a9a196}
+.vs-new li::before{content:"✓";color:var(--terra)}
+
+footer{border-top:1px solid var(--tinta);padding:2rem 0 3rem;font-size:.85rem;color:#5a564e}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="wrap">
+  <b>Isla Extra</b><span>Direzione visiva — proposta</span>
+</div></div>
+
+<header class="hero"><div class="wrap">
+  <p class="kicker">Identità · proposta 01</p>
+  <h1>CAL<em>Ç</em></h1>
+  <p class="hero-sub">Calce, ombra netta, terra rossa. I colori veri delle isole, non quelli della cartolina.</p>
+  <div class="hero-meta">
+    <div>Fondamento<b>Luce dura</b></div>
+    <div>Carattere<b>Editoriale</b></div>
+    <div>Tono<b>Selettivo</b></div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <p class="sec-n">01</p>
+  <h2 class="sec-t">Il mondo visivo</h2>
+  <p class="sec-d">Sei immagini generate per fissare l'atmosfera. Nessun volto, nessuna spiaggia, nessun turchese da agenzia di viaggi: superfici, materia e la luce che taglia. È il registro di chi lavora sull'isola, non di chi ci va in vacanza.</p>
+
+  <div class="grid">
+    <figure class="g-wide"><img src="img/01-calce-ombra.jpg" alt="Muro di calce con ombra netta diagonale"><figcaption>L'ombra che taglia</figcaption></figure>
+    <figure class="g-half"><img src="img/02-bougainvillea.jpg" alt="Bougainvillea magenta su muro bianco"><figcaption>Il magenta</figcaption></figure>
+    <figure class="g-third"><img src="img/03-terra-roja.jpg" alt="Terra rossa ibicenca con radici di pino"><figcaption>Sa terra roja</figcaption></figure>
+    <figure class="g-third"><img src="img/04-mani-lavoro.jpg" alt="Mani che lucidano un bicchiere"><figcaption>Il mestiere</figcaption></figure>
+    <figure class="g-third"><img src="img/05-tavolo.jpg" alt="Tavolo apparecchiato con ombre lunghe"><figcaption>Prima del servizio</figcaption></figure>
+    <figure class="g-wide"><img src="img/06-texture-calce.jpg" alt="Texture ravvicinata di calce"><figcaption>La materia</figcaption></figure>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">02</p>
+  <h2 class="sec-t">La palette</h2>
+  <p class="sec-d">Non inventata: ogni colore è campionato da un punto preciso delle immagini qui sopra. Per questo tiene insieme — sono i colori che la stessa luce produce davvero.</p>
+
+  <div class="pal">
+    <div class="sw"><i style="background:#F5F1E7"></i><div><b>Calç</b><code>#F5F1E7</code><small>La calce al sole. Il fondo di tutto.</small></div></div>
+    <div class="sw"><i style="background:#141519"></i><div><b>Tinta</b><code>#141519</code><small>L'ombra vera del muro. Testo e nero.</small></div></div>
+    <div class="sw"><i style="background:#B35F3D"></i><div><b>Terra roja</b><code>#B35F3D</code><small>Il suolo ferroso dell'isola. Il marchio.</small></div></div>
+    <div class="sw"><i style="background:#CB258B"></i><div><b>Buguenvíl·lea</b><code>#CB258B</code><small>L'accento vivo. Usato poco e forte.</small></div></div>
+    <div class="sw"><i style="background:#023A6B"></i><div><b>Cel</b><code>#023A6B</code><small>Il cielo a mezzogiorno. Sezioni scure.</small></div></div>
+    <div class="sw"><i style="background:#BEB4B2"></i><div><b>Pedra</b><code>#BEB4B2</code><small>Pietra secca. Bordi e divisioni.</small></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">03</p>
+  <h2 class="sec-t">La tipografia</h2>
+  <p class="sec-d">Due caratteri, entrambi gratuiti e nessuno dei due abusato. Niente Inter, niente Poppins, niente font di sistema: la tipografia è la prima cosa che distingue un progetto curato da uno generato.</p>
+
+  <div class="type">
+    <div class="tcard">
+      <p class="lab">Titoli — Zodiak</p>
+      <p class="tspec">Extra a<br>Sant Antoni</p>
+      <p class="glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</p>
+      <p class="tnote">Serif dal contrasto deciso, quasi scolpito. Ha carattere senza essere decorativo: sembra inciso nella pietra, non stampato.</p>
+    </div>
+    <div class="tcard">
+      <p class="lab">Testo — Switzer</p>
+      <p class="tspec-2">Quattro camerieri liberi stasera</p>
+      <p class="glyphs">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</p>
+      <p class="tnote">Grottesco svizzero neutro e leggibilissimo anche piccolo. Lascia parlare i titoli e regge bene numeri e tabelle.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">04</p>
+  <h2 class="sec-t">Come apparirebbe</h2>
+  <p class="sec-d">Un assaggio dell'apertura, con la stessa griglia editoriale: bordi netti a un pixel, nessuna ombra sfocata, nessun angolo arrotondato, tipografia grande e molto contrasto di scala.</p>
+
+  <div class="demo">
+    <div class="demo-bar"><b>Isla Extra</b><span>Eivissa · Formentera</span></div>
+    <div class="demo-body">
+      <div class="demo-l">
+        <h3 class="demo-h">Stasera ti manca<br>un cameriere.<br><em>Noi sappiamo chi è libero.</em></h3>
+        <p class="demo-p">Personale verificato uno per uno. Pubblichi l'orario esatto e ti proponiamo solo chi ha già confermato.</p>
+        <span class="demo-cta">Cerco personale</span>
+        <div class="demo-stats">
+          <div>Disponibili adesso<b>48</b></div>
+          <div>Attività attive<b>126</b></div>
+          <div>Risposta media<b>9 min</b></div>
+        </div>
+      </div>
+      <div class="demo-r"><img src="img/01-calce-ombra.jpg" alt=""></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="sec-n">05</p>
+  <h2 class="sec-t">Cosa cambia</h2>
+  <div class="vs">
+    <div class="vs-col vs-old">
+      <h4>La landing di adesso</h4>
+      <ul>
+        <li>Font di sistema, zero personalità</li>
+        <li>Teal su navy: la palette di ogni SaaS</li>
+        <li>Gradienti soffusi, l'opposto della luce vera</li>
+        <li>Angoli arrotondati e ombre morbide ovunque</li>
+        <li>Due card identiche, nessuna gerarchia</li>
+        <li>Nessuna immagine, nessuna materia</li>
+        <li>Nessun segno che appartenga solo a voi</li>
+      </ul>
+    </div>
+    <div class="vs-col vs-new">
+      <h4>Direzione CALÇ</h4>
+      <ul>
+        <li>Zodiak e Switzer, tipografia riconoscibile</li>
+        <li>Colori campionati dalla luce reale dell'isola</li>
+        <li>Ombre nette come quelle di mezzogiorno</li>
+        <li>Bordi vivi a un pixel, angoli tagliati</li>
+        <li>Griglia editoriale asimmetrica</li>
+        <li>Fotografia di materia e di mestiere</li>
+        <li>Un sigillo che è logo e certificazione insieme</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p>Immagini generate per uso interno di valutazione. Prossimo passo: il marchio.</p>
+</div></footer>
+
+</body>
+</html>
