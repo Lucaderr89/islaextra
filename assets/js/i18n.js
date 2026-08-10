@@ -6,8 +6,8 @@ const IE_I18N = {
 
   es: {
     hero_badge:'Ahora mismo en Eivissa y Formentera',
-    hero_title:'A las siete te faltan dos.<br><em>A las ocho ya están dentro.</em>',
-    hero_sub:'En la isla, cuando falta alguien, falta ya. Dinos la hora exacta — de 22:30 a 02:30 si hace falta — y te proponemos solo a quien está libre, verificado uno a uno, y que ya ha dicho que sí.',
+    hero_title:'Personal extra verificado,<br><em>en Eivissa y Formentera.</em>',
+    hero_sub:'Dices la hora exacta que necesitas — de 22:30 a 02:30 si hace falta — y te proponemos solo a quien está libre y ya ha dicho que sí. Cada perfil, comprobado uno a uno.',
     stat_available:'libres ahora mismo',
     stat_companies:'negocios activos',
     stat_matches:'turnos cubiertos esta semana',
@@ -187,8 +187,8 @@ const IE_I18N = {
 
   en: {
     hero_badge:'Right now in Ibiza and Formentera',
-    hero_title:'At seven you are two short.<br><em>By eight they are already in.</em>',
-    hero_sub:'On the island, when someone is missing, they are missing now. Give us the exact hours — 22:30 to 02:30 if that is the job — and we only propose people who are free, vetted one by one, and have already said yes.',
+    hero_title:'Verified extra staff,<br><em>in Ibiza and Formentera.</em>',
+    hero_sub:'Tell us the exact hours you need — 22:30 to 02:30 if that is the job — and we only propose people who are free and have already said yes. Every profile checked one by one.',
     stat_available:'free right now',
     stat_companies:'active businesses',
     stat_matches:'shifts covered this week',
@@ -368,8 +368,8 @@ const IE_I18N = {
 
   it: {
     hero_badge:'In questo momento a Ibiza e Formentera',
-    hero_title:'Alle sette ti mancano due.<br><em>Alle otto sono già al lavoro.</em>',
-    hero_sub:'Sull’isola, quando manca qualcuno, manca adesso. Dici l’orario esatto — dalle 22:30 alle 02:30, se serve — e ti proponiamo solo chi è libero, verificato uno per uno, e ha già detto di sì.',
+    hero_title:'Personale extra verificato,<br><em>a Ibiza e Formentera.</em>',
+    hero_sub:'Dici l’orario esatto che ti serve — dalle 22:30 alle 02:30, se è quello — e ti proponiamo solo chi è libero e ha già detto di sì. Ogni profilo, controllato uno per uno.',
     stat_available:'liberi adesso',
     stat_companies:'attività attive',
     stat_matches:'turni coperti questa settimana',
